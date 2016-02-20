@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Gameverse.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Gameverse</title>
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Assets/CSS/custom.css" rel="stylesheet" type="text/css" />
+    <link href="Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- START NAVBAR -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.aspx" class="pull-left"><img src="Assets/Images/LogoGrey.png" class="logo" /></a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li><a>Products</a></li>
+                        <li><a href="about.aspx">About</a></li>
+                        <li><a href="contact.aspx">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a>My Account</a></li>
+                        <li><a>My Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END NAVBAR -->
+
+        <!-- START PAGES CONTENT -->
+        <div class="container wrapper">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <!-- END PAGES CONTENT -->
+
+        <!-- START FOOTER -->
+        <div class="container" />
+        <footer>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About</h5>
+                    <p>Lorem ipsum dolor sit amet, sea in dicat doctus nostrud, error impetus civibus cum an. Erat erant altera sed no. Est ei amet virtute petentium. Labitur volutpat consetetur eu ius, an falli disputationi duo. At integre sanctus eum, cu vel populo admodum.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Links</h5>
+                    <a href="index.aspx">Home</a><br />
+                    <a>Products</a><br/>
+                    <a href="about.aspx">About</a><br/>
+                    <a href="contact.aspx">Contact</a>
+                </div>
+                <div class="col-md-4 text-right">
+                    <h5>Contact</h5>
+                    <p>Find us on <a>Facebook</a></p>
+                    <p>
+                        +1 000 000.0000<br />
+                        243 S Wabash Ave<br />
+                        Chicago, IL 
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- END FOOTER -->
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿/* INCREASE NAVBAR HEIGHT */
+.navbar-fixed-top {
+    min-height: 80px;
+}
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 80px;
+}
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;}
+}
+
+/* NAVBAR LOGO */
+.logo {
+    width: 80px;
+    margin-right: 16px;
+}
+
+/* TO FIT INTERNAL PAGES */
+.wrapper {
+    margin-top: 70px;
+}
+
+/* OTHERS */
+h5 {
+    font-weight: bold;
+}
