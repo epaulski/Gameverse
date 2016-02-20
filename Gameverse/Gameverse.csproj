@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="about.aspx" />
     <Content Include="Assets\CSS\custom.css" />
+    <Content Include="Assets\JS\jquery-2.2.0.min.js" />
     <Content Include="Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Bootstrap\css\bootstrap.css" />
