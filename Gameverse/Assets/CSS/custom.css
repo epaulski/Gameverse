@@ -29,3 +29,7 @@
 h5 {
     font-weight: bold;
 }
+
+th, td {
+    padding: 5px;
+}
