@@ -16,6 +16,7 @@ namespace Gameverse.Models
         public String State { get; set; }
         public String Zipcode { get; set; }
         public String Email { get; set; }
+        public String Password { get; set; }
         public String EmailOffer { get; set; }
     }
 }

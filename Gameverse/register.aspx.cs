@@ -31,6 +31,7 @@ namespace Gameverse
                     myReg.State = ddlState.SelectedValue;
                     myReg.Zipcode = txtZipcode.Text;
                     myReg.Email = txtEmail.Text;
+                    myReg.Password = txtPassword.Text;
                     myReg.EmailOffer = lstEmailOffer.SelectedValue;
                     context.Registrations.Add(myReg);
                     context.SaveChanges();

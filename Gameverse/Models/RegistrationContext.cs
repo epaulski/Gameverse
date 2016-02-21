@@ -2,9 +2,13 @@
 
 namespace Gameverse.Models
 {
-    //ep
-    public class RegistrationContext : DbContext
+    public partial class RegistrationContext : DbContext
     {
+        public RegistrationContext()
+            : base("name=RegistrationContext")
+        {
+
+        }
         public virtual DbSet<Registration> Registrations { get; set; }
     }
 }

@@ -151,29 +151,6 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblEmailOffer" runat="server" Text="Sign up for email offers? " ToolTip="Would you like to sign up for special email offers?"></asp:Label>
-                </td>
-                <td>
-                    <asp:RadioButtonList runat="server" ID="lstEmailOffer">
-                        <asp:ListItem Text="Yes" Value="Yes" Selected="True"></asp:ListItem>
-                        <asp:ListItem Text="No" Value="No"></asp:ListItem>
-                    </asp:RadioButtonList>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblUsername" runat="server" Text="Username: " ToolTip="REQUIRED: Enter a new username"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="reqUsername" ControlToValidate="txtUsername" EnableClientScript="true" ErrorMessage="Username required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <asp:Label ID="lblPassword" runat="server" Text="Password: " ToolTip="REQUIRED: Enter a secure password"></asp:Label>
                 </td>
                 <td>
@@ -195,7 +172,18 @@
                     <asp:CompareValidator ID="comparePwdValidator" ControlToCompare="txtPassword" ControlToValidate="txtPassword2" EnableClientScript="true" ErrorMessage="Passwords don't match" ForeColor="Red" runat="server"></asp:CompareValidator>
                 </td>
             </tr>
-            
+            <tr>
+                <td>
+                    <asp:Label ID="lblEmailOffer" runat="server" Text="Sign up for email offers? " ToolTip="Would you like to sign up for special email offers?"></asp:Label>
+                </td>
+                <td>
+                    <asp:RadioButtonList runat="server" ID="lstEmailOffer">
+                        <asp:ListItem Text="Yes" Value="Yes" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="No" Value="No"></asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                <td></td>
+            </tr>            
         </table>
         <asp:Button ID="btnSubmit" runat="server" CausesValidation="true" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
     </asp:Panel>
