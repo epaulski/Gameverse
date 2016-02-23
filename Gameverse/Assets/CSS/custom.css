@@ -25,7 +25,7 @@
 .wrapper {
     margin-top: 70px;
 }
-style="float: left;
+
 /* OTHERS */
 h5 {
     font-weight: bold;
@@ -38,4 +38,29 @@ th, td {
 #navbar-menu{
     float: left;
     margin-top:25px;
+}
+
+.games-list{
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.myCarouselControl{
+    background: transparent; 
+    color:grey;
+}
+
+.jumbotron{
+     background-size: cover;
+
+}
+
+.carousel-indicators{
+  // top:285px;
+    
+}
+
+.carousel-indicators li{
+    background-color: grey !important;
+    border-color: grey !important;
 }
