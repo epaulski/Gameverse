@@ -28,11 +28,11 @@
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
                         <li><a>Products</a></li>
-                        <li><a href="about.aspx">About</a></li>
-                        <li><a href="contact.aspx">Contact</a></li>
+                        <li><a href="Code/about.aspx">About</a></li>
+                        <li><a href="Code/contact.aspx">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="register.aspx">Register</a></li>
+                        <li><a href="Code/register.aspx">Register</a></li>
                         <li><a>My Account</a></li>
                         <li><a>My Cart</a></li>
                     </ul>
@@ -43,7 +43,7 @@
 
         <!-- START PAGES CONTENT -->
         <div class="container wrapper">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
         </div>
         <!-- END PAGES CONTENT -->
 
@@ -60,8 +60,8 @@
                     <h5>Links</h5>
                     <a href="index.aspx">Home</a><br />
                     <a>Products</a><br/>
-                    <a href="about.aspx">About</a><br/>
-                    <a href="contact.aspx">Contact</a>
+                    <a href="Code/about.aspx">About</a><br/>
+                    <a href="Code/contact.aspx">Contact</a>
                 </div>
                 <div class="col-md-4 text-right">
                     <h5>Contact</h5>

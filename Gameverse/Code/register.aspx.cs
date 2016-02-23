@@ -20,22 +20,31 @@ namespace Gameverse
             if (Page.IsValid)
             {
                 int id = 0;
-                using (RegistrationContext context = new RegistrationContext())
+                using (GameverseContext context = new GameverseContext())
                 {
-                    Registration myReg = context.Registrations.Create();
-                    myReg.FirstName = txtFirstName.Text;
-                    myReg.LastName = txtLastName.Text;
-                    myReg.Address1 = txtAddress1.Text;
-                    myReg.Address2 = txtAddress2.Text;
-                    myReg.City = txtCity.Text;
-                    myReg.State = ddlState.SelectedValue;
-                    myReg.Zipcode = txtZipcode.Text;
-                    myReg.Email = txtEmail.Text;
-                    myReg.Password = txtPassword.Text;
-                    myReg.EmailOffer = lstEmailOffer.SelectedValue;
-                    context.Registrations.Add(myReg);
+                    Address user_address = context.Addresses.Create();
+
+                    user_address.FirstName = txtFirstName.Text;
+                    user_address.LastName = txtLastName.Text;
+                    user_address.AddressLine1 = txtAddress1.Text;
+                    user_address.AddressLine2 = txtAddress2.Text;
+                    user_address.City = txtCity.Text;
+                    user_address.State = ddlState.SelectedValue;
+                    user_address.Zipcode = txtZipcode.Text;
+
+                    context.Addresses.Add(user_address);
                     context.SaveChanges();
-                    id = myReg.Id;
+
+                    User user = context.Users.Create();
+                    user.Email = txtEmail.Text;
+                    user.Password = txtPassword.Text;
+                    user.Name = txtFirstName.Text + " " + txtLastName.Text;
+                    user.EmailOffer = lstEmailOffer.SelectedValue;
+                    user.AddressId = user_address.Id;
+
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                    id = user.Id;
                 }
 
 

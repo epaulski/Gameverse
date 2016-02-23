@@ -4,7 +4,7 @@
     <!-- specific head -->
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <div class="page-header">
         <h1>Register</h1>
     </div>
