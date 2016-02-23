@@ -55,11 +55,6 @@ th, td {
 
 }
 
-.carousel-indicators{
-  // top:285px;
-    
-}
-
 .carousel-indicators li{
     background-color: grey !important;
     border-color: grey !important;
