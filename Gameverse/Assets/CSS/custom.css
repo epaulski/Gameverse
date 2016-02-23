@@ -25,7 +25,7 @@
 .wrapper {
     margin-top: 70px;
 }
-
+style="float: left;
 /* OTHERS */
 h5 {
     font-weight: bold;
@@ -33,4 +33,9 @@ h5 {
 
 th, td {
     padding: 5px;
+}
+
+#navbar-menu{
+    float: left;
+    margin-top:25px;
 }
