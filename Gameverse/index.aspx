@@ -7,65 +7,58 @@
     <br/>
     <!-- START JUMBOTRON -->
     <div class="jumbotron">
-        <div class="slideshow">
-            <div id="carAdvertisementGames"class="carousel slide" data-ride="carousel" data-interval="4000">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <a href="#"><img height="300" src="Assets/Images/TomClayncysTheDivision.jpg"/></a>
-                            </div>
-                            <div class="col-lg-8">
-                                <h2>Tom Clayncy's The Division</h2>
-                                <h4>Playstation 4 & Xbox One</h4>
-                                <h3>$59.99</h3>
-                                <a href="#"> See Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <img height="300" src="Assets/Images/StreetFighterV.jpg"/>
-                            </div>
-                            <div class="col-lg-8">
-                                <h2>Street Fighterer V</h2>
-                                <h4>Playstation 4</h4>
-                                <h3>$59.99</h3>
-                                <a href="#"> See Details</a>
+        <div id="carAdvertisementGames"class="carousel slide" data-ride="carousel" data-interval="4000">
+            <div class="carousel-inner">
+                <!-- START JUMBOTRON -->
+                <asp:Repeater runat="server" ID="rptJumboFirst">
+                    <ItemTemplate>
+                        <div class="item active">
+    	                    <div class="row">
+                                <div class="col-lg-4">
+                                    <img height="300" src="<%#Eval("ImageUrl")%>"/>
+                                </div>
+                                <div class="col-lg-8">
+                                    <h2><%#Eval("Name")%></h2>
+                                    <h4><%#Eval("Platform")%></h4>
+                                    <h3>$<%#Eval("Value")%></h3>
+                                    <a href="#">See Details</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <img height="300" src="Assets/Images/FarCryPrimal.jpg"/>
-                            </div>
-                            <div class="col-lg-8">
-                                <h2>Far Cry Primal</h2>
-                                <h4>Playstation4 & Xbox One</h4>
-                                <h3>$59.99</h3>
-                                <a href="#"> See Details</a>
+    	            </ItemTemplate>
+                </asp:Repeater> 
+                <asp:Repeater runat="server" ID="rptJumboGames">
+                    <ItemTemplate>
+                        <div class="item">
+    	                    <div class="row">
+                                <div class="col-lg-4">
+                                    <img height="300" src="<%#Eval("ImageUrl")%>"/>
+                                </div>
+                                <div class="col-lg-8">
+                                    <h2><%#Eval("Name")%></h2>
+                                    <h4><%#Eval("Platform")%></h4>
+                                    <h3>$<%#Eval("Value")%></h3>
+                                    <a href="#">See Details</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <ol class="carousel-indicators">
-                    <li data-target="#carAdvertisementGames" data-slide-to="0" class="active"></li>
-                    <li data-target="#carAdvertisementGames" data-slide-to="1"></li>
-                    <li data-target="#carAdvertisementGames" data-slide-to="2"></li>
-                </ol>
-                <!--<div class="container">
-                    <a class="left carousel-control" href="#carAdvertisementGames" data-slide="prev" style="background: transparent; color:grey;">
-                        <span class="glyphicon glyphicon-chevron-left black"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carAdvertisementGames" data-slide="next" style="background: transparent; color:grey;">
-                        <span class="glyphicon glyphicon-chevron-right black"></span>
-                    </a>
-                </div> -->
-             </div>
+    	            </ItemTemplate>
+                </asp:Repeater> 
+            </div>
+            <!--<ol class="carousel-indicators">
+                <li data-target="#carAdvertisementGames" data-slide-to="0" class="active"></li>
+                <li data-target="#carAdvertisementGames" data-slide-to="1"></li>
+                <li data-target="#carAdvertisementGames" data-slide-to="2"></li>
+            </ol> -->
+            <div class="container">
+                <a class="left carousel-control" href="#carAdvertisementGames" data-slide="prev" style="background: transparent; color:grey;">
+                    <span class="glyphicon glyphicon-chevron-left black"></span>
+                </a>
+                <a class="right carousel-control" href="#carAdvertisementGames" data-slide="next" style="background: transparent; color:grey;">
+                    <span class="glyphicon glyphicon-chevron-right black"></span>
+                </a>
+            </div>
         </div>
-        
     </div>
 
     <!-- END JUMBOTRON -->
@@ -209,7 +202,7 @@
                     <ul class="list-inline text-center">
                         <li class="games-list"><img height="200" src="Assets/Images/RiseOfTheTombRaider.jpg" class="block center-block"/></li>
                         <li class="games-list"><img height="200" src="Assets/Images/CallOfDutyBlackOps3.jpg" class="block center-block"/></li>
-                        <li dimgreclass="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
+                        <li class="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
                         <li class="games-list"><img height="200" src="Assets/Images/YoshisWoollyWorld.jpg" class="block center-block"/></li>
                         <li class="games-list"><img height="200" src="Assets/Images/TomClayncysTheDivision.jpg" class="block center-block"/></li>
                     </ul> 

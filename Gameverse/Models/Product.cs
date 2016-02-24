@@ -17,11 +17,13 @@ namespace Gameverse.Models
 
         public int Id { get; set; }
         public String Name { get; set; }
-        public String Desctiption { get; set; }
+        public String Description { get; set; }
         public String Details { get; set; }
         public String Platform { get; set; }
         public double Value { get; set; }
-        public byte[] Image { get; set; }
+        public String ImageUrl { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public int Rank { get; set; }
         public Nullable<int> GenreId { get; set; }
 
         [Timestamp]
