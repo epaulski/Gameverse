@@ -40,6 +40,16 @@ namespace Gameverse.Code
                         lblReleaseDate.Text = game.ReleaseDate.ToShortDateString();
                         lblGenre.Text = game.Genre.Name;
                         lblRating.Text = game.Rating.ToString();
+
+                        if (!Page.IsPostBack)
+                        {
+                            for (int i = 1; i <= game.Quantity; i++)
+                            {
+                                ListItem item = new ListItem();
+                                item.Text = i.ToString();
+                                drpQuantity.Items.Add(item);
+                            }
+                        }                      
                     }
                     else
                     {

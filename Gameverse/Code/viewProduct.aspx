@@ -22,11 +22,6 @@
                 <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-success" BorderStyle="Solid" Font-Size="Medium" Width="200"></asp:Button><br/><br/>
                 <p style="display:inline">Quantity </p>
                 <asp:DropDownList ID="drpQuantity" runat="server">
-                    <asp:ListItem Text="1"/>
-                    <asp:ListItem Text="2"/>
-                    <asp:ListItem Text="3"/>
-                    <asp:ListItem Text="4"/>
-                    <asp:ListItem Text="5"/>
                 </asp:DropDownList>
             </div>
         </div>
