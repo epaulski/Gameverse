@@ -11,6 +11,7 @@ namespace Gameverse.Models
         public int Id { get; set; }
         public Nullable<int> OrderId { get; set; }
         public Nullable<int> ProductId { get; set; }
+        public int Quantity { get; set; }
         [Timestamp]
         public byte[] Version { get; set; }
 

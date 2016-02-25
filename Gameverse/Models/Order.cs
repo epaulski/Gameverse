@@ -17,8 +17,7 @@ namespace Gameverse.Models
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public double Total { get; set; }
-        public int Quantity { get; set; }
-        public String State { get; set; }
+        public String Status { get; set; }
         public DateTime Date { get; set; }
         public Nullable<int> ShippingAddressId { get; set; }
         public Nullable<int> PaymentMethodId { get; set; }
