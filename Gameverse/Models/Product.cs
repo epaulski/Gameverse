@@ -24,6 +24,7 @@ namespace Gameverse.Models
         public String ImageUrl { get; set; }
         public DateTime ReleaseDate { get; set; }
         public double Rating { get; set; }
+        public int Quantity { get; set; }
         public Nullable<int> GenreId { get; set; }
 
         [Timestamp]

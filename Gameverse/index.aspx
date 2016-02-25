@@ -15,7 +15,7 @@
                         <div class="item active">
     	                    <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
+                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
                                 </div>
                                 <div class="col-lg-8">
                                     <h2><%#Eval("Name")%></h2>
@@ -32,7 +32,7 @@
                         <div class="item">
     	                    <div class="row">
                                 <div class="col-lg-4">
-                                    <img height="300" src="<%#Eval("ImageUrl")%>"/>
+                                   <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
                                 </div>
                                 <div class="col-lg-8">
                                     <h2><%#Eval("Name")%></h2>
