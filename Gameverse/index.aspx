@@ -15,7 +15,7 @@
                         <div class="item active">
     	                    <div class="row">
                                 <div class="col-lg-4">
-                                    <img height="300" src="<%#Eval("ImageUrl")%>"/>
+                                    <a href="#"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
                                 </div>
                                 <div class="col-lg-8">
                                     <h2><%#Eval("Name")%></h2>
@@ -45,50 +45,56 @@
     	            </ItemTemplate>
                 </asp:Repeater> 
             </div>
-            <!--<ol class="carousel-indicators">
+            <ol class="carousel-indicators">
                 <li data-target="#carAdvertisementGames" data-slide-to="0" class="active"></li>
                 <li data-target="#carAdvertisementGames" data-slide-to="1"></li>
                 <li data-target="#carAdvertisementGames" data-slide-to="2"></li>
-            </ol> -->
-            <div class="container">
+            </ol>
+            <!--<div class="container">
                 <a class="left carousel-control" href="#carAdvertisementGames" data-slide="prev" style="background: transparent; color:grey;">
                     <span class="glyphicon glyphicon-chevron-left black"></span>
                 </a>
                 <a class="right carousel-control" href="#carAdvertisementGames" data-slide="next" style="background: transparent; color:grey;">
                     <span class="glyphicon glyphicon-chevron-right black"></span>
                 </a>
-            </div>
+            </div>-->
         </div>
     </div>
-
     <!-- END JUMBOTRON -->
-
     <h3>New Releases</h3>
     <!--START CAROUSEL SLIDE -->
     <div id="carNewReleasesGames"class="carousel slide" data-ride="carousel" data-interval="0">
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li><img width="150" src="Assets/Images/BatmanArkhamNight.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/FarCryPrimal.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StreetFighterV.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StarWarsBattlefront.jpg" class="block center-block"/></li> 
-                        <li class="games-list"><img height="200" src="Assets/Images/GearsOfWarUltimateEdition.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptNewReleasesFirst">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
             </div>
             <div class="item">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li class="games-list"><img height="200" src="Assets/Images/RiseOfTheTombRaider.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/CallOfDutyBlackOps3.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/YoshisWoollyWorld.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/TomClayncysTheDivision.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptNewReleasesSecond">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="container">
             <a class="left carousel-control" href="#carNewReleasesGames" data-slide="prev" style="background: transparent; color:grey;">
@@ -107,26 +113,34 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li><img width="150" src="Assets/Images/BatmanArkhamNight.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200"" src="Assets/Images/FarCryPrimal.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StreetFighterV.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StarWarsBattlefront.jpg" class="block center-block"/></li> 
-                        <li class="games-list"><img height="200" src="Assets/Images/GearsOfWarUltimateEdition.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptFeaturedFirst">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
             </div>
             <div class="item">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li class="games-list"><img height="200" src="Assets/Images/RiseOfTheTombRaider.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/CallOfDutyBlackOps3.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/YoshisWoollyWorld.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/TomClayncysTheDivision.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptFeaturedSecond">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
-            </div>
+            </div> 
         </div>
         <div class="container">
             <a class="left carousel-control" href="#carFeaturedGames" data-slide="prev" style="background: transparent; color:grey;">
@@ -139,118 +153,133 @@
     </div>
     <!-- END CAROUSEL SLIDE -->
     <br/>
-    <h3>Playstation 4</h3>
-    <!--START CAROUSEL SLIDE -->
-    <div id="carPs4Games"class="carousel slide" data-ride="carousel" data-interval="0">
-        <div class="carousel-inner">
-
-            <div class="item active">
-                <div class="row">
-                    <ul class="list-inline text-center">
-                        <li><img width="150" src="Assets/Images/BatmanArkhamNight.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200"" src="Assets/Images/FarCryPrimal.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StreetFighterV.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StarWarsBattlefront.jpg" class="block center-block"/></li> 
-                        <li class="games-list"><img height="200" src="Assets/Images/GearsOfWarUltimateEdition.jpg" class="block center-block"/></li>
-                    </ul> 
-                </div>
-            </div>
-
-                <div class="item">
-                <div class="row">
-                    <ul class="list-inline text-center">
-                        <li class="games-list"><img height="200" src="Assets/Images/RiseOfTheTombRaider.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/CallOfDutyBlackOps3.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/YoshisWoollyWorld.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/TomClayncysTheDivision.jpg" class="block center-block"/></li>
-                    </ul> 
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <a class="left carousel-control" href="#carPs4Games" data-slide="prev" style="background: transparent; color:grey;">
-                <span class="glyphicon glyphicon-chevron-left black"></span>
-            </a>
-            <a class="right carousel-control" href="#carPs4Games" data-slide="next" style="background: transparent; color:grey;">
-                <span class="glyphicon glyphicon-chevron-right black"></span>
-            </a>
-        </div>
-    </div>
-    <!-- END CAROUSEL SLIDE -->
-    <br/>
     <h3>Xbox One</h3>
     <!--START CAROUSEL SLIDE -->
-    <div id="carXoneGames"class="carousel slide" data-ride="carousel" data-interval="0">
+    <div id="carXboxOneGames"class="carousel slide" data-ride="carousel" data-interval="0">
         <div class="carousel-inner">
-
             <div class="item active">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li><img width="150" src="Assets/Images/BatmanArkhamNight.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200"" src="Assets/Images/FarCryPrimal.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StreetFighterV.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StarWarsBattlefront.jpg" class="block center-block"/></li> 
-                        <li class="games-list"><img height="200" src="Assets/Images/GearsOfWarUltimateEdition.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptXboxOneFirst">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
             </div>
-
-                <div class="item">
+            <div class="item">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li class="games-list"><img height="200" src="Assets/Images/RiseOfTheTombRaider.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/CallOfDutyBlackOps3.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/YoshisWoollyWorld.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/TomClayncysTheDivision.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptXboxOneSecond">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
-            </div>
+            </div> 
         </div>
-
         <div class="container">
-            <a class="left carousel-control" href="#carXoneGames" data-slide="prev" style="background: transparent; color:grey;">
+            <a class="left carousel-control" href="#carXboxOneGames" data-slide="prev" style="background: transparent; color:grey;">
                 <span class="glyphicon glyphicon-chevron-left black"></span>
             </a>
-            <a class="right carousel-control" href="#carXoneGames" data-slide="next" style="background: transparent; color:grey;">
+            <a class="right carousel-control" href="#carXboxOneGames" data-slide="next" style="background: transparent; color:grey;">
                 <span class="glyphicon glyphicon-chevron-right black"></span>
             </a>
         </div>
     </div>
     <!-- END CAROUSEL SLIDE -->
     <br/>
-    <h3>Wii U</h3>
+    <h3>Playstation 4</h3>
+    <!--START CAROUSEL SLIDE -->
+    <div id="carPlaystation4"class="carousel slide" data-ride="carousel" data-interval="0">
+        <div class="carousel-inner">
+           <div class="item active">
+                <div class="row">
+                    <asp:Repeater runat="server" ID="rptPs4First">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <asp:Repeater runat="server" ID="rptPs4Second">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
+                </div>
+            </div> 
+        </div>
+        <div class="container">
+            <a class="left carousel-control" href="#carPlaystation4" data-slide="prev" style="background: transparent; color:grey;">
+                <span class="glyphicon glyphicon-chevron-left black"></span>
+            </a>
+            <a class="right carousel-control" href="#carPlaystation4" data-slide="next" style="background: transparent; color:grey;">
+                <span class="glyphicon glyphicon-chevron-right black"></span>
+            </a>
+        </div>
+    </div>
+    <!-- END CAROUSEL SLIDE -->
+    <br/>
+    <h3>Nintendo Wii U</h3>
     <!--START CAROUSEL SLIDE -->
     <div id="carWiiUGames"class="carousel slide" data-ride="carousel" data-interval="0">
         <div class="carousel-inner">
-
             <div class="item active">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li><img width="150" src="Assets/Images/BatmanArkhamNight.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200"" src="Assets/Images/FarCryPrimal.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StreetFighterV.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/StarWarsBattlefront.jpg" class="block center-block"/></li> 
-                        <li class="games-list"><img height="200" src="Assets/Images/GearsOfWarUltimateEdition.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptWiiUFirst">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
             </div>
-
-                <div class="item">
+            <div class="item">
                 <div class="row">
-                    <ul class="list-inline text-center">
-                        <li class="games-list"><img height="200" src="Assets/Images/RiseOfTheTombRaider.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/CallOfDutyBlackOps3.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/DeadPool.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/YoshisWoollyWorld.jpg" class="block center-block"/></li>
-                        <li class="games-list"><img height="200" src="Assets/Images/TomClayncysTheDivision.jpg" class="block center-block"/></li>
-                    </ul> 
+                    <asp:Repeater runat="server" ID="rptWiiUSecond">
+                        <HeaderTemplate>
+                            <ul class="list-inline text-center">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="games-list"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater> 
                 </div>
-            </div>
+            </div> 
         </div>
-
         <div class="container">
             <a class="left carousel-control" href="#carWiiUGames" data-slide="prev" style="background: transparent; color:grey;">
                 <span class="glyphicon glyphicon-chevron-left black"></span>

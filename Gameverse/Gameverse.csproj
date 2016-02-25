@@ -74,17 +74,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\BatmanArkhamNight.jpg" />
-    <Content Include="Assets\Images\CallOfDutyBlackOps3.jpg" />
-    <Content Include="Assets\Images\DeadPool.jpg" />
+    <Content Include="Assets\Images\CallOfDutyBlackOpsIII.jpg" />
+    <Content Include="Assets\Images\Fallout4.jpg" />
     <Content Include="Assets\Images\FarCryPrimal.jpg" />
-    <Content Include="Assets\Images\GearsOfWarUltimateEdition.jpg" />
-    <Content Include="Assets\Images\PokkenTournament.jpg" />
+    <Content Include="Assets\Images\ForzaMotorsport6.jpg" />
+    <Content Include="Assets\Images\LEGOMarvel%27sAvengers.jpg" />
+    <Content Include="Assets\Images\MarioKart8.jpg" />
     <Content Include="Assets\Images\RiseOfTheTombRaider.jpg" />
+    <Content Include="Assets\Images\Splatoon.jpg" />
     <Content Include="Assets\Images\StarWarsBattlefront.jpg" />
     <Content Include="Assets\Images\StreetFighterV.jpg" />
-    <Content Include="Assets\Images\TomClayncysTheDivision.jpg" />
-    <Content Include="Assets\Images\YoshisWoollyWorld.jpg" />
+    <Content Include="Assets\Images\SuperSmashBros.jpg" />
+    <Content Include="Assets\Images\TheWitcher3WildHunt.jpg" />
+    <Content Include="Assets\Images\TomClancy%27sTheDivision.jpg" />
+    <Content Include="Assets\Images\Yoshi%27sWoollyWorld.jpg" />
     <Content Include="Code\about.aspx" />
     <Content Include="Assets\CSS\custom.css" />
     <Content Include="Assets\JS\jquery-2.2.0.min.js" />
