@@ -19,7 +19,7 @@
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="index.aspx" class="pull-left"><img src="Assets/Images/LogoGrey.png" class="logo" /></a>
+                    <a href="../index.aspx" class="pull-left"><img src="../Assets/Images/LogoGrey.png" class="logo" /></a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -49,7 +49,7 @@
                             </asp:LinkButton>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a href="Code/register.aspx">Sign up</a></li>
+                            <li><a href="../Code/register.aspx">Sign up</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Gameverse <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -86,10 +86,10 @@
                 </div>
                 <div class="col-md-4 text-center">
                     <h5>Links</h5>
-                    <a href="index.aspx">Home</a><br />
+                    <a href="../index.aspx">Home</a><br />
                     <a>Products</a><br/>
-                    <a href="Code/about.aspx">About</a><br/>
-                    <a href="Code/contact.aspx">Contact</a>
+                    <a href="../Code/about.aspx">About</a><br/>
+                    <a href="../Code/contact.aspx">Contact</a>
                 </div>
                 <div class="col-md-4 text-right">
                     <h5>Contact</h5>
