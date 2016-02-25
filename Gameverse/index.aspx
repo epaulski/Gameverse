@@ -21,7 +21,7 @@
                                     <h2><%#Eval("Name")%></h2>
                                     <h4><%#Eval("Platform")%></h4>
                                     <h3>$<%#Eval("Value")%></h3>
-                                    <a href="#">See Details</a>
+                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"">See Details</a>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     <h2><%#Eval("Name")%></h2>
                                     <h4><%#Eval("Platform")%></h4>
                                     <h3>$<%#Eval("Value")%></h3>
-                                    <a href="#">See Details</a>
+                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>">See Details</a>
                                 </div>
                             </div>
                         </div>
