@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="Gameverse | About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="about.aspx.cs" Inherits="Gameverse.about" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server" >
     <!-- specific head -->
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server" >
     <div class="page-header">
         <h1>About</h1>
     </div>

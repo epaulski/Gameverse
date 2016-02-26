@@ -1,73 +1,73 @@
 ﻿<%@ Page Title="Gameverse | Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="Gameverse.register" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server" >
     <!-- specific head -->
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server" >
     <div class="page-header">
         <h1>Register</h1>
     </div>
-    <asp:Panel runat="server" ID="pnlEditing" Visible="true">
+    <asp:Panel runat="server"  ID="pnlEditing" Visible="true">
 
         <table style="width: 100%">
             <tr>
                 <td>
-                    <asp:Label ID="lblFirstName" runat="server" Text="First Name: " ToolTip="REQUIRED: Enter your first name"></asp:Label></td>
+                    <asp:Label ID="lblFirstName" runat="server"  Text="First Name: " ToolTip="REQUIRED: Enter your first name"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="txtFirstName" runat="server" AutoCompleteType="FirstName"></asp:TextBox>
+                    <asp:TextBox ID="txtFirstName" runat="server"  AutoCompleteType="FirstName"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="reqFirstName" ControlToValidate="txtFirstName" EnableClientScript="true" ErrorMessage="First name required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator></td>
+                    <asp:RequiredFieldValidator ID="reqFirstName" ControlToValidate="txtFirstName" EnableClientScript="true" ErrorMessage="First name required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblLastName" runat="server" Text="Last Name: " ToolTip="REQUIRED: Enter your last name"></asp:Label>
+                    <asp:Label ID="lblLastName" runat="server"  Text="Last Name: " ToolTip="REQUIRED: Enter your last name"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtLastName" runat="server" AutoCompleteType="LastName"></asp:TextBox>
+                    <asp:TextBox ID="txtLastName" runat="server"  AutoCompleteType="LastName"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="reqLastName" ControlToValidate="txtLastName" EnableClientScript="true" ErrorMessage="Last name required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="reqLastName" ControlToValidate="txtLastName" EnableClientScript="true" ErrorMessage="Last name required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblAddress1" runat="server" Text="Address 1: " ToolTip="REQUIRED: Enter your address (1)"></asp:Label>
+                    <asp:Label ID="lblAddress1" runat="server"  Text="Address 1: " ToolTip="REQUIRED: Enter your address (1)"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtAddress1" runat="server" AutoCompleteType="HomeStreetAddress"></asp:TextBox>
+                    <asp:TextBox ID="txtAddress1" runat="server"  AutoCompleteType="HomeStreetAddress"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="reqAddress1" ControlToValidate="txtAddress1" EnableClientScript="true" ErrorMessage="Address required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="reqAddress1" ControlToValidate="txtAddress1" EnableClientScript="true" ErrorMessage="Address required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblAddress2" runat="server" Text="Address 2: " ToolTip="Enter your address (2)"></asp:Label>
+                    <asp:Label ID="lblAddress2" runat="server"  Text="Address 2: " ToolTip="Enter your address (2)"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtAddress2" runat="server" ></asp:TextBox>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblCity" runat="server" Text="City: " ToolTip="REQUIRED: Enter your city"></asp:Label>
+                    <asp:Label ID="lblCity" runat="server"  Text="City: " ToolTip="REQUIRED: Enter your city"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtCity" runat="server" AutoCompleteType="HomeCity"></asp:TextBox>
+                    <asp:TextBox ID="txtCity" runat="server"  AutoCompleteType="HomeCity"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="reqCity" ControlToValidate="txtCity" EnableClientScript="true" ErrorMessage="City required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="reqCity" ControlToValidate="txtCity" EnableClientScript="true" ErrorMessage="City required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblState" runat="server" Text="State: " ToolTip="REQUIRED: Select your state"></asp:Label>
+                    <asp:Label ID="lblState" runat="server"  Text="State: " ToolTip="REQUIRED: Select your state"></asp:Label>
                 </td>
                 <td>
-                    <%--<asp:TextBox ID="txtState" runat="server" AutoCompleteType="HomeState"></asp:TextBox>--%>
-                    <asp:DropDownList ID="ddlState" runat="server">
+                    <%--<asp:TextBox ID="txtState" runat="server"  AutoCompleteType="HomeState"></asp:TextBox>--%>
+                    <asp:DropDownList ID="ddlState" runat="server" >
                         <asp:ListItem Value="AL">Alabama</asp:ListItem>
                         <asp:ListItem Value="AK">Alaska</asp:ListItem>
                         <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -122,62 +122,62 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <%-- %><asp:RequiredFieldValidator ID="reqState" ControlToValidate="txtState" EnableClientScript="true" ErrorMessage="State required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                    <%-- %><asp:RequiredFieldValidator ID="reqState" ControlToValidate="txtState" EnableClientScript="true" ErrorMessage="State required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
                     --%>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblZipcode" runat="server" Text="Zipcode: " ToolTip="REQUIRED: Enter your 5 digit zipcode"></asp:Label>
+                    <asp:Label ID="lblZipcode" runat="server"  Text="Zipcode: " ToolTip="REQUIRED: Enter your 5 digit zipcode"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtZipcode" runat="server" AutoCompleteType="HomeZipCode" MaxLength="5"></asp:TextBox>
+                    <asp:TextBox ID="txtZipcode" runat="server"  AutoCompleteType="HomeZipCode" MaxLength="5"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="reqZipcode" ControlToValidate="txtZipcode" EnableClientScript="true" ErrorMessage="Zipcode required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblEmail" runat="server" Text="Email: " ToolTip="REQUIRED: Enter your email"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtEmail" runat="server" AutoCompleteType="Email"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RegularExpressionValidator ID="regexEmail" ControlToValidate="txtEmail" ValidationExpression="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" EnableClientScript="true" ErrorMessage="Email not in the correct format" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RegularExpressionValidator>
-                    <br /><asp:RequiredFieldValidator ID="reqEmail" ControlToValidate="txtEmail" EnableClientScript="true" ErrorMessage="Email required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="reqZipcode" ControlToValidate="txtZipcode" EnableClientScript="true" ErrorMessage="Zipcode required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPassword" runat="server" Text="Password: " ToolTip="REQUIRED: Enter a secure password"></asp:Label>
+                    <asp:Label ID="lblEmail" runat="server"  Text="Email: " ToolTip="REQUIRED: Enter your email"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server"  AutoCompleteType="Email"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="reqPassword" ControlToValidate="txtPassword" EnableClientScript="true" ErrorMessage="Password required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblPassword2" runat="server" Text="Confirm password: " ToolTip="REQUIRED: Re-enter a secure password"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="txtPassword2" runat="server" TextMode="Password"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ID="reqPassword2" ControlToValidate="txtPassword2" EnableClientScript="true" ErrorMessage="Password re-entry required" ForeColor="Red" runat="server" SetFocusOnError="true"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="comparePwdValidator" ControlToCompare="txtPassword" ControlToValidate="txtPassword2" EnableClientScript="true" ErrorMessage="Passwords don't match" ForeColor="Red" runat="server"></asp:CompareValidator>
+                    <asp:RegularExpressionValidator ID="regexEmail" ControlToValidate="txtEmail" ValidationExpression="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" EnableClientScript="true" ErrorMessage="Email not in the correct format" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RegularExpressionValidator>
+                    <br /><asp:RequiredFieldValidator ID="reqEmail" ControlToValidate="txtEmail" EnableClientScript="true" ErrorMessage="Email required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblEmailOffer" runat="server" Text="Sign up for email offers? " ToolTip="Would you like to sign up for special email offers?"></asp:Label>
+                    <asp:Label ID="lblPassword" runat="server"  Text="Password: " ToolTip="REQUIRED: Enter a secure password"></asp:Label>
                 </td>
                 <td>
-                    <asp:RadioButtonList runat="server" ID="lstEmailOffer">
+                    <asp:TextBox ID="txtPassword" runat="server"  TextMode="Password"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqPassword" ControlToValidate="txtPassword" EnableClientScript="true" ErrorMessage="Password required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblPassword2" runat="server"  Text="Confirm password: " ToolTip="REQUIRED: Re-enter a secure password"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPassword2" runat="server"  TextMode="Password"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="reqPassword2" ControlToValidate="txtPassword2" EnableClientScript="true" ErrorMessage="Password re-entry required" ForeColor="Red" runat="server"  SetFocusOnError="true"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="comparePwdValidator" ControlToCompare="txtPassword" ControlToValidate="txtPassword2" EnableClientScript="true" ErrorMessage="Passwords don't match" ForeColor="Red" runat="server" ></asp:CompareValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblEmailOffer" runat="server"  Text="Sign up for email offers? " ToolTip="Would you like to sign up for special email offers?"></asp:Label>
+                </td>
+                <td>
+                    <asp:RadioButtonList runat="server"  ID="lstEmailOffer">
                         <asp:ListItem Text="Yes" Value="Yes" Selected="True"></asp:ListItem>
                         <asp:ListItem Text="No" Value="No"></asp:ListItem>
                     </asp:RadioButtonList>
@@ -185,21 +185,21 @@
                 <td></td>
             </tr>            
         </table>
-        <asp:Button ID="btnSubmit" runat="server" CausesValidation="true" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
+        <asp:Button ID="btnSubmit" runat="server"  CausesValidation="true" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
     </asp:Panel>
 
-    <asp:Panel runat="server" ID="pnlSummary" Visible="false">
-        <h2><asp:Label runat="server" ID="lblMessage"></asp:Label></h2>
-        <asp:Label runat="server" ID="lblID"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserFirstName"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserLastName"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserAddress1"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserAddress2"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserCity"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserState"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserZipcode"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserEmail"></asp:Label><br />
-        <asp:Label runat="server" ID="lblUserEmailOffer"></asp:Label><br />
+    <asp:Panel runat="server"  ID="pnlSummary" Visible="false">
+        <h2><asp:Label runat="server"  ID="lblMessage"></asp:Label></h2>
+        <asp:Label runat="server"  ID="lblID"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserFirstName"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserLastName"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserAddress1"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserAddress2"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserCity"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserState"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserZipcode"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserEmail"></asp:Label><br />
+        <asp:Label runat="server"  ID="lblUserEmailOffer"></asp:Label><br />
     </asp:Panel>
 
 </asp:Content>

@@ -1,16 +1,16 @@
 ﻿<%@ Page Title="Gameverse | Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Gameverse.index" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server" >
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server" >
     <br/>
     <!-- START JUMBOTRON -->
     <div class="jumbotron">
         <div id="carAdvertisementGames"class="carousel slide" data-ride="carousel" data-interval="4000">
             <div class="carousel-inner">
                 <!-- START JUMBOTRON -->
-                <asp:Repeater runat="server" ID="rptJumboFirst">
+                <asp:Repeater runat="server"  ID="rptJumboFirst">
                     <ItemTemplate>
                         <div class="item active">
     	                    <div class="row">
@@ -27,7 +27,7 @@
                         </div>
     	            </ItemTemplate>
                 </asp:Repeater> 
-                <asp:Repeater runat="server" ID="rptJumboGames">
+                <asp:Repeater runat="server"  ID="rptJumboGames">
                     <ItemTemplate>
                         <div class="item">
     	                    <div class="row">
@@ -67,7 +67,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptNewReleasesFirst">
+                    <asp:Repeater runat="server"  ID="rptNewReleasesFirst">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -82,7 +82,7 @@
             </div>
             <div class="item">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptNewReleasesSecond">
+                    <asp:Repeater runat="server"  ID="rptNewReleasesSecond">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -113,7 +113,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptFeaturedFirst">
+                    <asp:Repeater runat="server"  ID="rptFeaturedFirst">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -128,7 +128,7 @@
             </div>
             <div class="item">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptFeaturedSecond">
+                    <asp:Repeater runat="server"  ID="rptFeaturedSecond">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -159,7 +159,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptXboxOneFirst">
+                    <asp:Repeater runat="server"  ID="rptXboxOneFirst">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -174,7 +174,7 @@
             </div>
             <div class="item">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptXboxOneSecond">
+                    <asp:Repeater runat="server"  ID="rptXboxOneSecond">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -205,7 +205,7 @@
         <div class="carousel-inner">
            <div class="item active">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptPs4First">
+                    <asp:Repeater runat="server"  ID="rptPs4First">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -220,7 +220,7 @@
             </div>
             <div class="item">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptPs4Second">
+                    <asp:Repeater runat="server"  ID="rptPs4Second">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -251,7 +251,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptWiiUFirst">
+                    <asp:Repeater runat="server"  ID="rptWiiUFirst">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
@@ -266,7 +266,7 @@
             </div>
             <div class="item">
                 <div class="row">
-                    <asp:Repeater runat="server" ID="rptWiiUSecond">
+                    <asp:Repeater runat="server"  ID="rptWiiUSecond">
                         <HeaderTemplate>
                             <ul class="list-inline text-center">
                         </HeaderTemplate>

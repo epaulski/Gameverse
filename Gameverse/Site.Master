@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head runat="server" >
     <title>Gameverse</title>
     <link rel="icon" type="image/png" href="Assets/Images/LogoGrey.png"/>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Assets/CSS/custom.css" rel="stylesheet" type="text/css" />
     <script src="../Assets/JS/jquery-2.2.0.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server" >
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
         <!-- START NAVBAR -->
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -31,20 +31,20 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"> All</a></li>
-                                <li><a href="#"> New Releases</a></li>
-                                <li><a href="#"> Featured</a></li>
+                                <li><a href="../Code/listProducts.aspx"> All</a></li>
+                                <li><a href="../Code/listProducts.aspx?filter=NewReleases"> New Releases</a></li>
+                                <li><a href="../Code/listProducts.aspx?filter=Featured"> Featured</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#"> Playstation 4</a></li>
-                                <li><a href="#"> Xbox One</a></li>
-                                <li><a href="#"> Wii U</a></li>
+                                <li><a href="../Code/listProducts.aspx?filter=Ps4"> Playstation 4</a></li>
+                                <li><a href="../Code/listProducts.aspx?filter=XboxOne"> Xbox One</a></li>
+                                <li><a href="../Code/listProducts.aspx?filter=WiiU"> Wii U</a></li>
                             </ul>
                         </li>
                     </ul>
                     <div class="navbar-right">
                         <div class="navbar-form" role="search" id="navbar-menu">
-                            <asp:TextBox ID="txtSearrh" runat="server" CssClass="form-control" Placeholder="Search for games" Width="400"></asp:TextBox>
-                            <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-default">
+                            <asp:TextBox ID="txtSearrh" runat="server"  CssClass="form-control" Placeholder="Search for games" Width="400"></asp:TextBox>
+                            <asp:LinkButton ID="btnSearch" runat="server"  CssClass="btn btn-default">
                                 <span class="glyphicon glyphicon-search"> </span>
                             </asp:LinkButton>
                         </div>
@@ -71,7 +71,7 @@
 
         <!-- START PAGES CONTENT -->
         <div class="container wrapper">
-            <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="mainContentPlaceHolder" runat="server" ></asp:ContentPlaceHolder>
         </div>
         <!-- END PAGES CONTENT -->
 
