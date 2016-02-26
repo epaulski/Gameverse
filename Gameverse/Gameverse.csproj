@@ -102,6 +102,8 @@
     <Content Include="Assets\Images\LogoGrey.png" />
     <Content Include="Code\contact.aspx" />
     <Content Include="Code\listProducts.aspx" />
+    <Content Include="Code\login.aspx" />
+    <Content Include="Code\settings.aspx" />
     <Content Include="Code\viewProduct.aspx" />
     <Content Include="index.aspx" />
     <Content Include="packages.config" />
@@ -147,6 +149,20 @@
     </Compile>
     <Compile Include="Code\listProducts.aspx.designer.cs">
       <DependentUpon>listProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\settings.aspx.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\settings.aspx.designer.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\viewProduct.aspx.cs">
       <DependentUpon>viewProduct.aspx</DependentUpon>
