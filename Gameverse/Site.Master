@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" href="Assets/Images/LogoGrey.png"/>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="Assets/CSS/custom.css" rel="stylesheet" type="text/css" />
-    <script src="Assets/JS/jquery-2.2.0.min.js"></script>
-    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Assets/JS/jquery-2.2.0.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

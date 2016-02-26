@@ -101,6 +101,7 @@
     <Content Include="Bootstrap\js\npm.js" />
     <Content Include="Assets\Images\LogoGrey.png" />
     <Content Include="Code\contact.aspx" />
+    <Content Include="Code\listProducts.aspx" />
     <Content Include="Code\viewProduct.aspx" />
     <Content Include="index.aspx" />
     <Content Include="packages.config" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="Code\contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\listProducts.aspx.cs">
+      <DependentUpon>listProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\listProducts.aspx.designer.cs">
+      <DependentUpon>listProducts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\viewProduct.aspx.cs">
       <DependentUpon>viewProduct.aspx</DependentUpon>
