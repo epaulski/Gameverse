@@ -13,5 +13,10 @@ namespace Gameverse
         {
 
         }
+
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Code/listProducts.aspx?filter=" + txtSearch.Text);
+        }
     }
 }

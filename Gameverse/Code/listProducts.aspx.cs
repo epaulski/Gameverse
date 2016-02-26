@@ -30,15 +30,6 @@ namespace Gameverse.Code
                     List<Product> games = (from p in context.Products orderby p.ReleaseDate descending select p).ToList();
                     switch (filter)
                     {
-                        case "Ps4":
-                            games = (from p in context.Products where p.Platform == "Playstation 4" select p).ToList();
-                            break;
-                        case "XboxOne":
-                            games = (from p in context.Products where p.Platform == "Xbox One" select p).ToList();
-                            break;
-                        case "WiiU":
-                            games = (from p in context.Products where p.Platform == "Nintendo Wii U" select p).ToList();
-                            break;
                         case "Featured":
                             games = (from p in context.Products orderby p.Rating descending select p).ToList().GetRange(0,6);
                             break;
@@ -46,6 +37,10 @@ namespace Gameverse.Code
                             games = (from p in context.Products orderby p.ReleaseDate descending select p).ToList().GetRange(0,6);
                             break;
                         default:
+                            filter = filter.ToLower();
+                            games = (from p in context.Products where p.Name.Contains(filter) 
+                                     || p.Platform.Contains(filter) || p.Genre.Name.Contains(filter) 
+                                     select p).ToList();
                             break;
                     }
 

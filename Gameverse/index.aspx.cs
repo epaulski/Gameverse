@@ -310,7 +310,7 @@ namespace Gameverse
                 product.ImageUrl = local_path + "LEGOMarvel'sAvengers.jpg";
                 product.ReleaseDate = new DateTime(2015, 5, 18);
                 product.Rating = 7.7;
-                product.GenreId = 4;
+                product.GenreId = 6;
                 context.Products.Add(product);
                 context.SaveChanges();
 
