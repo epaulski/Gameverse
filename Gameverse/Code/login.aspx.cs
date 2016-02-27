@@ -27,6 +27,8 @@ namespace Gameverse.Code
             {
                 panelError.Visible = true;
                 lblResults.Text = "You must log in to access that page.";
+                panelLogin.Visible = true;
+                panelLogout.Visible = false;
             }
         }
 
@@ -48,7 +50,7 @@ namespace Gameverse.Code
                 if (user != null)
                 {
                     Session["LoggedInId"] = user.Id.ToString();
-                    Response.Redirect("myAccount.aspx");
+                    Response.Redirect("settings.aspx");
                 }
                 else
                 {
