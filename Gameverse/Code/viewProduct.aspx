@@ -23,6 +23,7 @@
                 <p style="display:inline">Quantity </p>
                 <asp:DropDownList ID="drpQuantity" runat="server">
                 </asp:DropDownList>
+                <asp:Label ID="Message" runat="server" CssClass="message"></asp:Label>
             </div>
         </div>
         <br/><br/>

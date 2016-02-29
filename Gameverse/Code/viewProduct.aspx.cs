@@ -10,9 +10,20 @@ namespace Gameverse.Code
 {
     public partial class viewProduct : System.Web.UI.Page
     {
+        string pid;
+        private int UserID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else if (!IsPostBack)
+            {
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+            }
+
             if (Request.QueryString["product"] != null)
             {
                 int id = Int32.Parse(Request.QueryString["product"].ToString());
@@ -22,6 +33,9 @@ namespace Gameverse.Code
             {
                 //lblMessage.Text = "No User ID Provided";
             }
+
+            UserID = int.Parse(Session["LoggedInId"].ToString());
+            pid = Request.QueryString["product"];
         }
 
         protected void LoadProduct(int id)
@@ -64,7 +78,28 @@ namespace Gameverse.Code
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-          
+            using (GameverseContext context = new GameverseContext())
+            {
+                int productId = Int32.Parse(pid);
+                int quant = Int32.Parse(drpQuantity.Text);
+
+                CartItem newitem = new CartItem();
+
+                newitem.ProductId = productId;
+                newitem.Quantity = quant;
+                newitem.UserId = UserID;
+
+                if (newitem != null)
+                {
+                    context.CartItems.Add(newitem);
+                    context.SaveChanges();
+                    Response.Redirect("myCart.aspx");
+                }
+                else
+                {
+                    Message.Text = "Sorry, the item can't be added.";
+                }
+            }
         }
     }
 }
