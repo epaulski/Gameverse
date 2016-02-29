@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gameverse | Game" Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="viewProduct.aspx.cs" Inherits="Gameverse.Code.viewProduct" %>
+﻿<%@ Page Title="Gameverse | Game" Language="C#" MasterPageFile="~/Code/Site.Master"  AutoEventWireup="true" CodeBehind="viewProduct.aspx.cs" Inherits="Gameverse.Code.viewProduct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-3">
                 <br/>
-                <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-success" BorderStyle="Solid" Font-Size="Medium" Width="200"></asp:Button><br/><br/>
+                <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" CssClass="btn btn-success" BorderStyle="Solid" Font-Size="Medium" Width="200" OnClick="btnAddToCart_Click"></asp:Button><br/><br/>
                 <p style="display:inline">Quantity </p>
                 <asp:DropDownList ID="drpQuantity" runat="server">
                 </asp:DropDownList>

@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server" >
     <title>Gameverse</title>
-    <link rel="icon" type="image/png" href="Assets/Images/LogoGrey.png"/>
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="Assets/CSS/custom.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="../Assets/Images/LogoGrey.png"/>
+    <link href="../Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../Assets/CSS/custom.css" rel="stylesheet" type="text/css" />
     <script src="../Assets/JS/jquery-2.2.0.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server" >
@@ -19,7 +19,7 @@
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="../index.aspx" class="pull-left"><img src="../Assets/Images/LogoGrey.png" class="logo" /></a>
+                    <a href="index.aspx" class="pull-left"><img src="../Assets/Images/LogoGrey.png" class="logo" /></a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -31,23 +31,23 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games<b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="../Code/listProducts.aspx"> All</a></li>
-                                <li><a href="../Code/listProducts.aspx?filter=NewReleases"> New Releases</a></li>
-                                <li><a href="../Code/listProducts.aspx?filter=Featured"> Featured</a></li>
+                                <li><a href="listProducts.aspx"> All</a></li>
+                                <li><a href="listProducts.aspx?filter=NewReleases"> New Releases</a></li>
+                                <li><a href="listProducts.aspx?filter=Featured"> Featured</a></li>
                                 <li class="divider"></li>
-                                <li><a href="../Code/listProducts.aspx?filter=Playstation 4"> Playstation 4</a></li>
-                                <li><a href="../Code/listProducts.aspx?filter=Xbox One"> Xbox One</a></li>
-                                <li><a href="../Code/listProducts.aspx?filter=Nintendo Wii U"> Nintendo Wii U</a></li>
+                                <li><a href="listProducts.aspx?filter=Playstation 4"> Playstation 4</a></li>
+                                <li><a href="listProducts.aspx?filter=Xbox One"> Xbox One</a></li>
+                                <li><a href="listProducts.aspx?filter=Nintendo Wii U"> Nintendo Wii U</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-submenu">
                                     <a tabindex="-1" href="#">Categories</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="../Code/listProducts.aspx?filter=Action Adventure"> Action Adventure</a></li>
-                                        <li><a href="../Code/listProducts.aspx?filter=Fighting"> Fighting</a></li>
-                                        <li><a href="../Code/listProducts.aspx?filter=Racing"> Racing</a></li>
-                                        <li><a href="../Code/listProducts.aspx?filter=RPG"> RPG</a></li>
-                                        <li><a href="../Code/listProducts.aspx?filter=Shooters"> Shooters</a></li>
-                                        <li><a href="../Code/listProducts.aspx?filter=Family"> Family</a></li>
+                                        <li><a href="listProducts.aspx?filter=Action Adventure"> Action Adventure</a></li>
+                                        <li><a href="listProducts.aspx?filter=Fighting"> Fighting</a></li>
+                                        <li><a href="listProducts.aspx?filter=Racing"> Racing</a></li>
+                                        <li><a href="listProducts.aspx?filter=RPG"> RPG</a></li>
+                                        <li><a href="listProducts.aspx?filter=Shooters"> Shooters</a></li>
+                                        <li><a href="listProducts.aspx?filter=Family"> Family</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -65,9 +65,6 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Gameverse <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <%--<li><a href="#"> My Account</a></li>
-                                    <li><a href="#"> My Orders</a></li>
-                                    <li class="divider"></li>--%>
                                     <li><a href="../Code/login.aspx"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
                                     <li><a href="#"><span class="glyphicon glyphicon-usd"></span>  My Orders</a></li>
                                     <li><a href="../Code/settings.aspx"><span class="glyphicon glyphicon-wrench"></span>  Settings</a></li>
@@ -100,10 +97,10 @@
                 </div>
                 <div class="col-md-4 text-center">
                     <h5>Links</h5>
-                    <a href="../index.aspx">Home</a><br />
+                    <a href="index.aspx">Home</a><br />
                     <a>Products</a><br/>
-                    <a href="../Code/about.aspx">About</a><br/>
-                    <a href="../Code/contact.aspx">Contact</a>
+                    <a href="about.aspx">About</a><br/>
+                    <a href="contact.aspx">Contact</a>
                 </div>
                 <div class="col-md-4 text-right">
                     <h5>Contact</h5>

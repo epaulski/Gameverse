@@ -50,6 +50,7 @@ namespace Gameverse.Code
                 if (user != null)
                 {
                     Session["LoggedInId"] = user.Id.ToString();
+
                     Response.Redirect("settings.aspx");
                 }
                 else

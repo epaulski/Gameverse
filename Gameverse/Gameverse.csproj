@@ -100,12 +100,15 @@
     <Content Include="Bootstrap\js\bootstrap.min.js" />
     <Content Include="Bootstrap\js\npm.js" />
     <Content Include="Assets\Images\LogoGrey.png" />
+    <Content Include="Code\checkOut.aspx" />
     <Content Include="Code\contact.aspx" />
     <Content Include="Code\listProducts.aspx" />
     <Content Include="Code\login.aspx" />
+    <Content Include="Code\myCart.aspx" />
+    <Content Include="Code\myOrders.aspx" />
     <Content Include="Code\settings.aspx" />
     <Content Include="Code\viewProduct.aspx" />
-    <Content Include="index.aspx" />
+    <Content Include="Code\index.aspx" />
     <Content Include="packages.config" />
     <Content Include="Bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Bootstrap\css\bootstrap-theme.min.css.map" />
@@ -116,7 +119,7 @@
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Code\register.aspx" />
-    <Content Include="Site.Master" />
+    <Content Include="Code\Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -135,6 +138,13 @@
     </Compile>
     <Compile Include="Code\about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\checkOut.aspx.cs">
+      <DependentUpon>checkOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\checkOut.aspx.designer.cs">
+      <DependentUpon>checkOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
@@ -157,6 +167,20 @@
     <Compile Include="Code\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\myCart.aspx.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\myCart.aspx.designer.cs">
+      <DependentUpon>myCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\myOrders.aspx.cs">
+      <DependentUpon>myOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\myOrders.aspx.designer.cs">
+      <DependentUpon>myOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Code\settings.aspx.cs">
       <DependentUpon>settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,11 +198,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
+    <Compile Include="Code\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
+    <Compile Include="Code\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
@@ -198,11 +222,11 @@
     <Compile Include="Code\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
+    <Compile Include="Code\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="Code\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>

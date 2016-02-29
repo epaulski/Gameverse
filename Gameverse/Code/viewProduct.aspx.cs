@@ -10,6 +10,7 @@ namespace Gameverse.Code
 {
     public partial class viewProduct : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["product"] != null)
@@ -59,6 +60,11 @@ namespace Gameverse.Code
             }
             catch (Exception)
             { }
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
