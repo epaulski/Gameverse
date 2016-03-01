@@ -52,8 +52,11 @@ th, td {
 }
 
 .jumbotron{
-     background-size: cover;
-     background-color: #DCE8EC;
+    //background-size: cover;
+    //background-color: #DCE8EC;
+    background-image: url(../Images/subtle.png);
+    background-repeat: repeat;
+    
 }
 
 .carousel-indicators li{

@@ -15,14 +15,11 @@ namespace Gameverse.Code
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LoggedInId"] == null)
+            if (Session["LoggedInId"] != null)
             {
-                Response.Redirect("Login.aspx");
+                UserID = int.Parse(Session["LoggedInId"].ToString());
             }
-            else if (!IsPostBack)
-            {
-                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
-            }
+            
 
             if (Request.QueryString["product"] != null)
             {
@@ -34,7 +31,7 @@ namespace Gameverse.Code
                 //lblMessage.Text = "No User ID Provided";
             }
 
-            UserID = int.Parse(Session["LoggedInId"].ToString());
+            
             pid = Request.QueryString["product"];
         }
 
@@ -78,6 +75,12 @@ namespace Gameverse.Code
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
+
+            if (Session["LoggedInId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             using (GameverseContext context = new GameverseContext())
             {
                 int productId = Int32.Parse(pid);
