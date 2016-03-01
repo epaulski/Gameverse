@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="settings.aspx.cs" Inherits="Gameverse.Code.settings" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
+<asp:Content ID="mainContent" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
 
     <div class="page-header">
         <h1>Settings</h1>
     </div>
-
+     <asp:Panel ID="pnlError" Visible="false" runat="server">
+            <div class="alert alert-danger" role="alert"><asp:Label runat="server" ID="lblResults"></asp:Label></div>
+     </asp:Panel>
+    
     <h3>Current Profile</h3>
-
     <asp:Table ID="tblData" runat="server" class="table" Width="50%">
         <asp:TableHeaderRow>
         </asp:TableHeaderRow>

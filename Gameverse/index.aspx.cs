@@ -13,6 +13,8 @@ namespace Gameverse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //InsertData();
+            
             LoadJumbotronGames();
             LoadNewReleases();
             LoadFeaturedGames();
@@ -20,7 +22,6 @@ namespace Gameverse
             LoadXboxOneGames();
             LoadWiiUGames();
             
-            //InsertData();
         }
 
         protected void LoadJumbotronGames()
@@ -132,7 +133,7 @@ namespace Gameverse
             {
                 String local_path = "/Assets/Images/";
                 Product product;
-                /*
+                
                 // All Kinds of Genres
                 Genre genre = context.Genres.Create();
                 genre.Name = "Action Adventure";
@@ -341,7 +342,7 @@ namespace Gameverse
                 product.GenreId = 5;
                 context.Products.Add(product);
                 context.SaveChanges();
-                */
+                
             }
         }
     }  

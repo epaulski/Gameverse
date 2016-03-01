@@ -12,7 +12,7 @@ namespace Gameverse.Models
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> ProductId { get; set; }
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         [Timestamp]
         public byte[] Version { get; set; }

@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="Gameverse | Game" Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="viewProduct.aspx.cs" Inherits="Gameverse.Code.viewProduct" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">  
+<asp:Content ID="mainContent" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">  
     <br/><br/>
     <div id="" class="container">
         <div class="row">

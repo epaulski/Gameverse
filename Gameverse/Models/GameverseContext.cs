@@ -20,7 +20,6 @@ namespace Gameverse.Models
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderProduct> OrderProducts { get; set; }
         public virtual DbSet<CartItem> CartItems { get; set; }
-        public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
     }
 }

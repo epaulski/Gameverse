@@ -12,44 +12,42 @@ namespace Gameverse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
-                int id = 0;
+                int userId = 0;
                 using (GameverseContext context = new GameverseContext())
                 {
-                    Address user_address = context.Addresses.Create();
-
-                    user_address.FirstName = txtFirstName.Text;
-                    user_address.LastName = txtLastName.Text;
-                    user_address.AddressLine1 = txtAddress1.Text;
-                    user_address.AddressLine2 = txtAddress2.Text;
-                    user_address.City = txtCity.Text;
-                    user_address.State = ddlState.SelectedValue;
-                    user_address.Zipcode = txtZipcode.Text;
-
-                    context.Addresses.Add(user_address);
-                    context.SaveChanges();
 
                     User user = context.Users.Create();
                     user.Email = txtEmail.Text;
                     user.Password = txtPassword.Text;
                     user.Name = txtFirstName.Text + " " + txtLastName.Text;
                     user.EmailOffer = lstEmailOffer.SelectedValue;
-                    user.AddressId = user_address.Id;
 
                     context.Users.Add(user);
                     context.SaveChanges();
-                    id = user.Id;
+
+                    Address user_address = context.Addresses.Create();
+                    user_address.AddressLine1 = txtAddress1.Text;
+                    user_address.AddressLine2 = txtAddress2.Text;
+                    user_address.City = txtCity.Text;
+                    user_address.State = ddlState.SelectedValue;
+                    user_address.Zipcode = txtZipcode.Text;
+                    user_address.Type = "Home";
+                    user_address.UserId = user.Id;
+
+                    context.Addresses.Add(user_address);
+                    context.SaveChanges();
+
+                    userId = user.Id;
                 }
 
-
                 lblMessage.Text = "Registration summary:";
-                lblID.Text = "Member ID: " + id;
+                lblID.Text = "Member ID: " + userId;
                 lblUserFirstName.Text = "First name: " + txtFirstName.Text;
                 lblUserLastName.Text = "Last name: " + txtLastName.Text;
                 lblUserAddress1.Text = "Address 1: " + txtAddress1.Text;

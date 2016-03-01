@@ -12,6 +12,7 @@ namespace Gameverse.Models
         {
             this.Orders = new HashSet<Order>();
             this.CartItems = new HashSet<CartItem>();
+            this.Addresses = new HashSet<Address>();
         }
 
         public int Id { get; set; }
@@ -19,14 +20,13 @@ namespace Gameverse.Models
         public String Password { get; set; }
         public String Name { get; set; }
         public String EmailOffer { get; set; }
-        public Nullable<int> AddressId { get; set; }
+
         [Timestamp]
         public byte[] Version { get; set; }
 
-        public virtual Address Address { get; set; }
-
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<CartItem> CartItems { get; set; }
-        
+        public virtual ICollection<Address> Addresses { get; set; }
+    
     }
 }

@@ -40,7 +40,6 @@ namespace Gameverse.Code
 
         protected void Login(object sender, EventArgs e)
         {
-
             using (GameverseContext context = new GameverseContext())
             {
                 var user = (from u in context.Users
@@ -51,7 +50,7 @@ namespace Gameverse.Code
                 {
                     Session["LoggedInId"] = user.Id.ToString();
 
-                    Response.Redirect("settings.aspx");
+                    Response.Redirect("../index.aspx");
                 }
                 else
                 {

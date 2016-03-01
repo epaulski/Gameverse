@@ -10,7 +10,7 @@ namespace Gameverse.Code
 {
     public partial class myCart : System.Web.UI.Page
     {
-        private int UserID;
+        private int userId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +23,7 @@ namespace Gameverse.Code
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
 
-            UserID = int.Parse(Session["LoggedInId"].ToString());
+            userId = int.Parse(Session["LoggedInId"].ToString());
 
             LoadCart();
         }
@@ -33,7 +33,7 @@ namespace Gameverse.Code
             using (GameverseContext context = new GameverseContext())
             {
                 var MyCartItems = from i in context.CartItems
-                                  where i.UserId == UserID
+                                  where i.UserId == userId
                                   orderby i.ProductId
                                   select i;
 

@@ -1430,11 +1430,11 @@ if (typeof jQuery === 'undefined') {
 
       var $tip = this.tip()
 
-      var tipId = this.getUID(this.type)
+      var tiproductId = this.getUID(this.type)
 
       this.setContent()
-      $tip.attr('id', tipId)
-      this.$element.attr('aria-describedby', tipId)
+      $tip.attr('id', tiproductId)
+      this.$element.attr('aria-describedby', tiproductId)
 
       if (this.options.animation) $tip.addClass('fade')
 
