@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gameverse | Home" Language="C#" MasterPageFile="~/Code/Site.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Gameverse.index" %>
+﻿<%@ Page Title="Gameverse | Home" Language="C#" MasterPageFile="Site.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Gameverse.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server" >
 </asp:Content>
@@ -15,13 +15,13 @@
                         <div class="item active">
     	                    <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
+                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
                                 </div>
                                 <div class="col-lg-8">
                                     <h2><%#Eval("Name")%></h2>
                                     <h4><%#Eval("Platform")%></h4>
                                     <h3>$<%#Eval("Value")%></h3>
-                                    <a href="viewProduct.aspx?product=<%#Eval("Id")%>"">See Details</a>
+                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"">See Details</a>
                                 </div>
                             </div>
                         </div>
@@ -32,13 +32,13 @@
                         <div class="item">
     	                    <div class="row">
                                 <div class="col-lg-4">
-                                   <a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
+                                   <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
                                 </div>
                                 <div class="col-lg-8">
                                     <h2><%#Eval("Name")%></h2>
                                     <h4><%#Eval("Platform")%></h4>
                                     <h3>$<%#Eval("Value")%></h3>
-                                    <a href="viewProduct.aspx?product=<%#Eval("Id")%>">See Details</a>
+                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>">See Details</a>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -87,7 +87,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -118,7 +118,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -133,7 +133,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -164,7 +164,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -179,7 +179,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -210,7 +210,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -225,7 +225,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -256,7 +256,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -271,7 +271,7 @@
                             <ul class="list-inline text-center">
                         </HeaderTemplate>
                         <ItemTemplate>
-                            <li class="games-list"><a href="viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
+                            <li class="games-list"><a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="250" src="<%#Eval("ImageUrl")%>" class="block center-block"/></a></li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>

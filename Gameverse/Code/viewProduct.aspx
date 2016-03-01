@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gameverse | Game" Language="C#" MasterPageFile="~/Code/Site.Master"  AutoEventWireup="true" CodeBehind="viewProduct.aspx.cs" Inherits="Gameverse.Code.viewProduct" %>
+﻿<%@ Page Title="Gameverse | Game" Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="viewProduct.aspx.cs" Inherits="Gameverse.Code.viewProduct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

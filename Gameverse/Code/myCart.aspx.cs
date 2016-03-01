@@ -51,10 +51,21 @@ namespace Gameverse.Code
                     cell.Text = i.Quantity.ToString();
                     row.Cells.Add(cell);
 
-                    TableCart.Rows.Add(row);
+                    cell = new TableCell();
+                    Button link = new Button();
+                    link.Text = "Remove";
+                    link.Click +=
+                         new EventHandler((s, e) => removeClick(s, e, i.Id));
+                    cell.Controls.Add(link);
+                    row.Cells.Add(cell);
 
+                    TableCart.Rows.Add(row);
                 }
             }
+        }
+
+        private void removeClick(object s, EventArgs e, int item)
+        {//not today
         }
     }
 }

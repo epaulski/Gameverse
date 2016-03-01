@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Code/Site.Master" AutoEventWireup="true" CodeBehind="myCart.aspx.cs" Inherits="Gameverse.Code.myCart" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="myCart.aspx.cs" Inherits="Gameverse.Code.myCart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,7 @@
     <div class="page-header">
         <h1>My Cart</h1>
     </div>
-    
+    <asp:Label ID="Message" runat="server" CssClass="message"></asp:Label>
 	<section>
 		<asp:Table ID="TableCart" runat="server">
 			<asp:TableHeaderRow>

@@ -13,6 +13,15 @@ namespace Gameverse.Code {
     public partial class myCart {
         
         /// <summary>
+        /// Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Message;
+        
+        /// <summary>
         /// TableCart control.
         /// </summary>
         /// <remarks>

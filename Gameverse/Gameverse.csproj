@@ -88,13 +88,11 @@
     <Content Include="Assets\Images\TheWitcher3WildHunt.jpg" />
     <Content Include="Assets\Images\TomClancy%27sTheDivision.jpg" />
     <Content Include="Assets\Images\Yoshi%27sWoollyWorld.jpg" />
+    <Content Include="Bootstrap\css\bootswatch.css" />
     <Content Include="Code\about.aspx" />
     <Content Include="Assets\CSS\custom.css" />
     <Content Include="Assets\JS\jquery-2.2.0.min.js" />
-    <Content Include="Bootstrap\css\bootstrap-theme.css" />
-    <Content Include="Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Bootstrap\css\bootstrap.css" />
-    <Content Include="Bootstrap\css\bootstrap.min.css" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Bootstrap\js\bootstrap.js" />
     <Content Include="Bootstrap\js\bootstrap.min.js" />
@@ -108,18 +106,14 @@
     <Content Include="Code\myOrders.aspx" />
     <Content Include="Code\settings.aspx" />
     <Content Include="Code\viewProduct.aspx" />
-    <Content Include="Code\index.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="packages.config" />
-    <Content Include="Bootstrap\css\bootstrap-theme.css.map" />
-    <Content Include="Bootstrap\css\bootstrap-theme.min.css.map" />
-    <Content Include="Bootstrap\css\bootstrap.css.map" />
-    <Content Include="Bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Code\register.aspx" />
-    <Content Include="Code\Site.Master" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,11 +192,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Code\index.aspx.cs">
+    <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Code\index.aspx.designer.cs">
+    <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
@@ -222,11 +216,11 @@
     <Compile Include="Code\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Code\Site.Master.cs">
+    <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Code\Site.Master.designer.cs">
+    <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>
