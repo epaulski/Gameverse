@@ -19,6 +19,13 @@ namespace Gameverse.Code
             }
             else
             {
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
+
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+
                 var currentId = int.Parse(Session["LoggedInId"].ToString());
 
                 using (GameverseContext context = new GameverseContext())

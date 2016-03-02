@@ -14,11 +14,22 @@ namespace Gameverse.Code
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["LoggedInId"] != null)
+            {
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
+
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+            }
+        
             String filter = "";
             if (Request.QueryString["filter"] != null)
             {
                filter = Request.QueryString["filter"].ToString();
             }
+            
             LoadProducts(filter);
         }
         protected void LoadProducts(String filter)

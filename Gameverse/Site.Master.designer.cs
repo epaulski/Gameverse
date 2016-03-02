@@ -49,6 +49,24 @@ namespace Gameverse {
         protected global::System.Web.UI.WebControls.LinkButton btnSearch;
         
         /// <summary>
+        /// linkRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkRegister;
+        
+        /// <summary>
+        /// linkSession control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkSession;
+        
+        /// <summary>
         /// mainContentPlaceHolder control.
         /// </summary>
         /// <remarks>

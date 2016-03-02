@@ -185,6 +185,7 @@
     </asp:Panel>
 
     <asp:Panel runat="server"  ID="pnlSummary" Visible="false">
+        <div class="alert alert-success" role="alert"><p>Your account has been created.</p></div>
         <h3><asp:Label runat="server"  ID="lblMessage"></asp:Label></h3>
         <asp:Label runat="server"  ID="lblID"></asp:Label><br />
         <asp:Label runat="server"  ID="lblUserFirstName"></asp:Label><br />

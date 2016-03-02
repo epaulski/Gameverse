@@ -13,15 +13,24 @@ namespace Gameverse
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedInId"] != null)
+            {
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
+
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+            }
+
             //InsertData();
-            
+
             LoadJumbotronGames();
             LoadNewReleases();
             LoadFeaturedGames();
             LoadPs4Games();
             LoadXboxOneGames();
             LoadWiiUGames();
-            
         }
 
         protected void LoadJumbotronGames()

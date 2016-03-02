@@ -11,7 +11,15 @@ namespace Gameverse.Code
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["LoggedInId"] != null)
+            {
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
 
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+            }
         }
     }
 }

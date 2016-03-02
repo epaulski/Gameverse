@@ -12,16 +12,6 @@ namespace Gameverse.Code
     {
         protected void Page_Load()
         {
-            if (Session["LoggedInId"] == null)
-            {
-                panelLogin.Visible = true;
-                panelLogout.Visible = false;
-            }
-            else
-            {
-                panelLogin.Visible = false;
-                panelLogout.Visible = true;
-            }
 
             if (Request.QueryString["error"] != null)
             {
@@ -30,12 +20,31 @@ namespace Gameverse.Code
                 panelLogin.Visible = true;
                 panelLogout.Visible = false;
             }
+
+            if (Session["LoggedInId"] == null)
+            {
+                panelLogin.Visible = true;
+                panelLogout.Visible = false;
+            }
+            else
+            {
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
+
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+
+                panelLogin.Visible = false;
+                panelLogout.Visible = true;
+            }
         }
 
         protected void LogOut(object sender, EventArgs e)
         {
             Session.Clear();
             Response.Redirect("login.aspx");
+            
         }
 
         protected void Login(object sender, EventArgs e)
@@ -49,7 +58,8 @@ namespace Gameverse.Code
                 if (user != null)
                 {
                     Session["LoggedInId"] = user.Id.ToString();
-
+                    Session["FirstName"] = user.Name.Split(' ')[0];
+                    
                     Response.Redirect("../index.aspx");
                 }
                 else

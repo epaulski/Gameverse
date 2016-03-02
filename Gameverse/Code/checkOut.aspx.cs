@@ -10,7 +10,18 @@ namespace Gameverse.Code
 {
     public partial class checkOut : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["LoggedInId"] != null)
+            {
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
 
-    
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+            }
+        }
+
     }
 }

@@ -16,15 +16,22 @@ namespace Gameverse.Code
         {
             if (Session["LoggedInId"] == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("login.aspx?error=1");
             }
             else if (!IsPostBack)
             {
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
 
-            userId = int.Parse(Session["LoggedInId"].ToString());
+            HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+            linkSession.Text = "Logout";
 
+            HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+            linkRegister.Text = "Hello, " + Session["FirstName"];
+            linkRegister.Enabled = false;
+
+            userId = int.Parse(Session["LoggedInId"].ToString());
+            
             LoadCart();
         }
 

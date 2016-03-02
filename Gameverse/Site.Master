@@ -61,14 +61,15 @@
                             </asp:LinkButton>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a href="/Code/register.aspx">Sign up</a></li>
+                            <li><asp:HyperLink ID="linkRegister" runat="server" Text="Sign up" NavigateUrl="/Code/register.aspx"></asp:HyperLink></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Gameverse <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/Code//login.aspx"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
                                     <li><a href="/Code/myOrders.aspx"><span class="glyphicon glyphicon-usd"></span>  My Orders</a></li>
                                     <li><a href="/Code/settings.aspx"><span class="glyphicon glyphicon-wrench"></span>  Settings</a></li>
                                     <li><a href="/Code/about.aspx"><span class="glyphicon glyphicon-hand-up"></span>  About</a></li>
+                                    <li class="divider"></li>
+                                    <li class="text-center"><asp:HyperLink ID="linkSession" runat="server" NavigateUrl="/Code/login.aspx" Text="Log in"></asp:HyperLink></li>
                                     <!--<li><a href="/Code/login.aspx"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>-->
                                 </ul>
                             </li>

@@ -18,7 +18,6 @@ namespace Gameverse
         {
             if (Page.IsValid)
             {
-                int userId = 0;
                 using (GameverseContext context = new GameverseContext())
                 {
 
@@ -43,24 +42,31 @@ namespace Gameverse
                     context.Addresses.Add(user_address);
                     context.SaveChanges();
 
-                    userId = user.Id;
-                }
+                    lblMessage.Text = "Registration summary:";
+                    lblID.Text = "Member ID: " + user.Id;
+                    lblUserFirstName.Text = "First name: " + txtFirstName.Text;
+                    lblUserLastName.Text = "Last name: " + txtLastName.Text;
+                    lblUserAddress1.Text = "Address 1: " + txtAddress1.Text;
+                    lblUserAddress2.Text = "Address 2: " + txtAddress2.Text;
+                    lblUserCity.Text = "City: " + txtCity.Text;
+                    lblUserState.Text = "State: " + ddlState.SelectedValue;
+                    lblUserZipcode.Text = "Zipcode: " + txtZipcode.Text;
+                    lblUserEmail.Text = "Email: " + txtEmail.Text;
+                    lblUserEmailOffer.Text = "Subscribed?: " + lstEmailOffer.SelectedValue;
+                    pnlEditing.Visible = false;
+                    pnlSummary.Visible = true;
 
-                lblMessage.Text = "Registration summary:";
-                lblID.Text = "Member ID: " + userId;
-                lblUserFirstName.Text = "First name: " + txtFirstName.Text;
-                lblUserLastName.Text = "Last name: " + txtLastName.Text;
-                lblUserAddress1.Text = "Address 1: " + txtAddress1.Text;
-                lblUserAddress2.Text = "Address 2: " + txtAddress2.Text;
-                lblUserCity.Text = "City: " + txtCity.Text;
-                lblUserState.Text = "State: " + ddlState.SelectedValue;
-                lblUserZipcode.Text = "Zipcode: " + txtZipcode.Text;
-                lblUserEmail.Text = "Email: " + txtEmail.Text;
-                lblUserEmailOffer.Text = "Subscribed?: " + lstEmailOffer.SelectedValue;
-                pnlEditing.Visible = false;
-                pnlSummary.Visible = true;
+                    Session["LoggedInId"] = user.Id.ToString();
+                    Session["FirstName"] = user.Name.Split(' ')[0];
+
+                    HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                    linkSession.Text = "Logout";
+
+                    HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                    linkRegister.Text = "Hello, " + Session["FirstName"];
+                    linkRegister.Enabled = false;
+                }               
             }
-
         }
     }
 }
