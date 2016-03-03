@@ -51,8 +51,10 @@ namespace Gameverse.Code
         {
             using (GameverseContext context = new GameverseContext())
             {
+
+                string hashedPassword = SecuredPassword.GenerateHash(txtPassword.Text);
                 var user = (from u in context.Users
-                            where u.Email == txtUserName.Text && u.Password == txtPassword.Text
+                            where u.Email == txtUserName.Text && u.Password == hashedPassword
                             select u).FirstOrDefault();
 
                 if (user != null)

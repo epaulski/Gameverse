@@ -175,6 +175,7 @@
     <Compile Include="Code\myOrders.aspx.designer.cs">
       <DependentUpon>myOrders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\SecuredPassword.cs" />
     <Compile Include="Code\settings.aspx.cs">
       <DependentUpon>settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

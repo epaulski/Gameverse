@@ -36,7 +36,7 @@
         </div>
         <div class="row">
             <div class="col-md-2">
-                <p>Reselase Date</p>
+                <p>Release Date</p>
                 <p>Genre</p>
                 <p>Rating</p>
             </div>

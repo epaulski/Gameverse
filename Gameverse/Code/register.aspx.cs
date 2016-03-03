@@ -20,51 +20,61 @@ namespace Gameverse
             {
                 using (GameverseContext context = new GameverseContext())
                 {
+                    var existingUsers = (from u in context.Users where u.Email == txtEmail.Text select u).FirstOrDefault();
 
-                    User user = context.Users.Create();
-                    user.Email = txtEmail.Text;
-                    user.Password = txtPassword.Text;
-                    user.Name = txtFirstName.Text + " " + txtLastName.Text;
-                    user.EmailOffer = lstEmailOffer.SelectedValue;
+                    if (existingUsers == null)
+                    {
+                        User user = context.Users.Create();
+                        user.Email = txtEmail.Text;
+                        user.Password = SecuredPassword.GenerateHash(txtPassword.Text);
+                        user.Name = txtFirstName.Text + " " + txtLastName.Text;
+                        user.EmailOffer = lstEmailOffer.SelectedValue;
 
-                    context.Users.Add(user);
-                    context.SaveChanges();
+                        context.Users.Add(user);
+                        context.SaveChanges();
 
-                    Address user_address = context.Addresses.Create();
-                    user_address.AddressLine1 = txtAddress1.Text;
-                    user_address.AddressLine2 = txtAddress2.Text;
-                    user_address.City = txtCity.Text;
-                    user_address.State = ddlState.SelectedValue;
-                    user_address.Zipcode = txtZipcode.Text;
-                    user_address.Type = "Home";
-                    user_address.UserId = user.Id;
+                        Address user_address = context.Addresses.Create();
+                        user_address.AddressLine1 = txtAddress1.Text;
+                        user_address.AddressLine2 = txtAddress2.Text;
+                        user_address.City = txtCity.Text;
+                        user_address.State = ddlState.SelectedValue;
+                        user_address.Zipcode = txtZipcode.Text;
+                        user_address.Type = "Home";
+                        user_address.UserId = user.Id;
 
-                    context.Addresses.Add(user_address);
-                    context.SaveChanges();
+                        context.Addresses.Add(user_address);
+                        context.SaveChanges();
 
-                    lblMessage.Text = "Registration summary:";
-                    lblID.Text = "Member ID: " + user.Id;
-                    lblUserFirstName.Text = "First name: " + txtFirstName.Text;
-                    lblUserLastName.Text = "Last name: " + txtLastName.Text;
-                    lblUserAddress1.Text = "Address 1: " + txtAddress1.Text;
-                    lblUserAddress2.Text = "Address 2: " + txtAddress2.Text;
-                    lblUserCity.Text = "City: " + txtCity.Text;
-                    lblUserState.Text = "State: " + ddlState.SelectedValue;
-                    lblUserZipcode.Text = "Zipcode: " + txtZipcode.Text;
-                    lblUserEmail.Text = "Email: " + txtEmail.Text;
-                    lblUserEmailOffer.Text = "Subscribed?: " + lstEmailOffer.SelectedValue;
-                    pnlEditing.Visible = false;
-                    pnlSummary.Visible = true;
+                        lblMessage.Text = "Registration summary:";
+                        lblID.Text = "Member ID: " + user.Id;
+                        lblUserFirstName.Text = "First name: " + txtFirstName.Text;
+                        lblUserLastName.Text = "Last name: " + txtLastName.Text;
+                        lblUserAddress1.Text = "Address 1: " + txtAddress1.Text;
+                        lblUserAddress2.Text = "Address 2: " + txtAddress2.Text;
+                        lblUserCity.Text = "City: " + txtCity.Text;
+                        lblUserState.Text = "State: " + ddlState.SelectedValue;
+                        lblUserZipcode.Text = "Zipcode: " + txtZipcode.Text;
+                        lblUserEmail.Text = "Email: " + txtEmail.Text;
+                        lblUserEmailOffer.Text = "Subscribed?: " + lstEmailOffer.SelectedValue;
+                        pnlEditing.Visible = false;
+                        pnlSummary.Visible = true;
 
-                    Session["LoggedInId"] = user.Id.ToString();
-                    Session["FirstName"] = user.Name.Split(' ')[0];
+                        Session["LoggedInId"] = user.Id.ToString();
+                        Session["FirstName"] = user.Name.Split(' ')[0];
 
-                    HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
-                    linkSession.Text = "Logout";
+                        HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                        linkSession.Text = "Logout";
 
-                    HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
-                    linkRegister.Text = "Hello, " + Session["FirstName"];
-                    linkRegister.Enabled = false;
+                        HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                        linkRegister.Text = "Hello, " + Session["FirstName"];
+                        linkRegister.Enabled = false;
+                    }
+                    else
+                    {
+                        lblResults.Text = "Email already registered. Please use a different email or log in.";
+                        panelError.Visible = true;
+                    }
+
                 }               
             }
         }
