@@ -4,7 +4,6 @@ using System.Security.Cryptography;
 
 public class SecuredPassword
 {
-	
 			public static String GenerateHash(String password)
 	        {
                 //WARNING: This code does not reflect best practice.  It is a simplistic implementation designed to introduce the concept of hashing.

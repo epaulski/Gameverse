@@ -39,7 +39,7 @@ namespace Gameverse
             {
                 using (GameverseContext context = new GameverseContext())
                 {
-                    var games = (from p in context.Products select p).ToList().GetRange(0,3);
+                    var games = (from p in context.Products orderby p.Id descending select p).ToList().GetRange(0,3);
                     var first_game = new List<Product>();
                     first_game.Add(games.First());
                     rptJumboFirst.DataSource = first_game;
@@ -161,7 +161,7 @@ namespace Gameverse
                 context.Genres.Add(genre);
 
                 genre = context.Genres.Create();
-                genre.Name = "Sports";
+                genre.Name = "Shooter";
                 context.Genres.Add(genre);
 
                 genre = context.Genres.Create();

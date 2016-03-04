@@ -58,6 +58,7 @@ namespace Gameverse
                         lblUserEmailOffer.Text = "Subscribed?: " + lstEmailOffer.SelectedValue;
                         pnlEditing.Visible = false;
                         pnlSummary.Visible = true;
+                        panelError.Visible = false;
 
                         Session["LoggedInId"] = user.Id.ToString();
                         Session["FirstName"] = user.Name.Split(' ')[0];

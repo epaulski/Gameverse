@@ -46,7 +46,7 @@
                                         <li><a href="/Code/listProducts.aspx?filter=Fighting"> Fighting</a></li>
                                         <li><a href="/Code/listProducts.aspx?filter=Racing"> Racing</a></li>
                                         <li><a href="/Code/listProducts.aspx?filter=RPG"> RPG</a></li>
-                                        <li><a href="/Code/listProducts.aspx?filter=Shooters"> Shooters</a></li>
+                                        <li><a href="/Code/listProducts.aspx?filter=Shooter"> Shooters</a></li>
                                         <li><a href="/Code/listProducts.aspx?filter=Family"> Family</a></li>
                                     </ul>
                                 </li>

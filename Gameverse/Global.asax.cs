@@ -13,13 +13,13 @@ namespace Gameverse
         protected void Application_Start(object sender, EventArgs e)
         {
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
-     new ScriptResourceDefinition
-     {
-         Path = "~/scripts/jquery-1.9.1.min.js",
-         DebugPath = "~/scripts/jquery-1.9.1.min.js",
-         CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js",
-         CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.js"
-     });
+             new ScriptResourceDefinition
+             {
+                 Path = "~/scripts/jquery-1.9.1.min.js",
+                 DebugPath = "~/scripts/jquery-1.9.1.min.js",
+                 CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js",
+                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.js"
+             });
         }
     }
 }

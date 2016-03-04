@@ -21,8 +21,7 @@ namespace Gameverse.Models
         public DateTime Date { get; set; }
         public Nullable<int> ShippingAddressId { get; set; }
         public Nullable<int> BillingAddressId { get; set; }
-
-
+        
         [Timestamp]
         public byte[] Version { get; set; }
 
