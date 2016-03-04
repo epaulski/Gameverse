@@ -61,8 +61,9 @@ namespace Gameverse.Code
                     cell = new TableCell();
                     Button link = new Button();
                     link.Text = "Remove";
+                    link.CssClass = "btn btn-danger btn-sm";
                     link.Click +=
-                         new EventHandler((s, e) => removeClick(s, e, i.Id));
+                         new EventHandler((s, e) => RemoveClick(s, e, i.Id));
                     cell.Controls.Add(link);
                     row.Cells.Add(cell);
 
@@ -71,8 +72,30 @@ namespace Gameverse.Code
             }
         }
 
-        private void removeClick(object s, EventArgs e, int item)
-        {//not today
+        protected void RemoveClick(object s, EventArgs e, int item)
+        {
+            Message.Text = item.ToString();
+            using (GameverseContext context = new GameverseContext())
+            {
+                var citem = (from ci in context.CartItems
+                           where ci.UserId == userId && ci.Id == item
+                           select ci).FirstOrDefault();
+                if (citem != null)
+                {
+                    context.CartItems.Remove(citem);
+                    context.SaveChanges();
+                    Response.Redirect("myCart.aspx");
+                }
+                else
+                {
+                    Message.Text = "Sorry, the item can't be removed.";
+                }
+            }
+        }
+
+        protected void ClickCheckOut(object sender, EventArgs e)
+        {
+            Response.Redirect("checkOut.aspx");
         }
     }
 }

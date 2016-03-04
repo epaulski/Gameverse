@@ -6,12 +6,14 @@
     </div>
     <asp:Label ID="Message" runat="server" CssClass="message"></asp:Label>
 	<section>
-		<asp:Table ID="TableCart" runat="server">
-			<asp:TableHeaderRow>
+		<asp:Table ID="TableCart" runat="server" CssClass="table_cart">
+			<asp:TableHeaderRow CssClass="table_titles">
 				<asp:TableHeaderCell>Product</asp:TableHeaderCell>
 				<asp:TableHeaderCell>Quantity</asp:TableHeaderCell>
                 <asp:TableHeaderCell>Remove</asp:TableHeaderCell>
 			</asp:TableHeaderRow>
 		</asp:Table>
+        <br />
+	    <asp:Button ID="BtnCheckOut" runat="server" Text="Check Out" CssClass="btn btn-primary btn-lg" OnClick="ClickCheckOut" />
 	</section>
 </asp:Content>
