@@ -5,5 +5,5 @@
      <div class="page-header">
         <h1><asp:Label id="LabelStatus" runat="server" Text="Thank You For Your Order!"></asp:Label></h1>
     </div>
-    <asp:Label ID="message" runat="server" Text="Your order history can be viewed on your <a href='myOrders.aspx'>Orders Page</a>."></asp:Label>
+    <asp:Label ID="message" runat="server" Text="Your order history can be viewed on your <a href='myOrders.aspx'>My Orders Page</a>."></asp:Label>
 </asp:Content>

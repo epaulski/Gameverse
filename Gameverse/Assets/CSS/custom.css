@@ -53,13 +53,15 @@ th, td {
 
 .jumbotron{
     background-image: url(../Images/subtle.png);
-    background-repeat: repeat;
-    
+    background-repeat: repeat;   
+}
+
+.jumbotron h3{
+    color: red;
 }
 
 .carousel-indicators li{
-    background-color: grey !important;
-    border-color: grey !important;
+    background-color: white !important;
 }
 
 #listProducts{
@@ -141,8 +143,12 @@ th, td {
     font-size: 14px;
 }
 
+.table_cart th{ 
+    border-top:0px !important;
+}
+
 .table_cart tr {
-   border-bottom: 1px solid #ccc;
+   border-bottom: 1px solid #ddd;
 }
 
 .table_cart tr th {

@@ -30,7 +30,7 @@ namespace Gameverse
             LoadFeaturedGames();
             LoadPs4Games();
             LoadXboxOneGames();
-            LoadWiiUGames();
+            LoadWiiUGames();           
         }
 
         protected void LoadJumbotronGames()
@@ -40,11 +40,15 @@ namespace Gameverse
                 using (GameverseContext context = new GameverseContext())
                 {
                     var games = (from p in context.Products orderby p.Id descending select p).ToList().GetRange(0,3);
-                    var first_game = new List<Product>();
-                    first_game.Add(games.First());
-                    rptJumboFirst.DataSource = first_game;
-                    rptJumboFirst.DataBind();
-                    
+                    Product first_game = games.First();
+            
+                    linkFirstGame.NavigateUrl = "/Code/viewProduct.aspx?product=" + first_game.Id;
+                    imgFirstGame.ImageUrl = first_game.ImageUrl;
+                    lblFirstGameName.Text = first_game.Name;
+                    lblFirstGamePlatform.Text = first_game.Platform;
+                    lblFirstGamePrice.Text = "$" + first_game.Value;
+                    linkFirstGameDetails.NavigateUrl = "/Code/viewProduct.aspx?product=" + first_game.Id;
+
                     rptJumboGames.DataSource = games.GetRange(1,2);
                     rptJumboGames.DataBind();
                 }

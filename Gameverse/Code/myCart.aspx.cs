@@ -47,12 +47,11 @@ namespace Gameverse.Code
 
                 foreach (CartItem i in MyCartItems)
                 {
-
                     TableRow row = new TableRow();
                     TableCell cell;
 
                     cell = new TableCell();
-                    cell.Text = i.Product.Name;
+                    cell.Text = i.Product.Name + " - " + i.Product.Platform;
                     row.Cells.Add(cell);
 
                     cell = new TableCell();
@@ -106,48 +105,48 @@ namespace Gameverse.Code
                 // Build new Order entry
                 var neworder = new Order();
                 neworder.UserId = userId;
-                neworder.ShippingAddressId = 1;
-                neworder.Date = DateTime.Now;
-                neworder.Status = "";
-                neworder.BillingAddressId = 1;
 
+                // TODO: check if the user wants to use the home address as shipping address or add a new one
+                var shippingAddressId = (from a in context.Addresses
+                                         where a.UserId == userId 
+                                         select a.Id).FirstOrDefault();
+
+                neworder.ShippingAddressId = shippingAddressId;
+                // TODO: check if the user wants to use the home address as billing address or add a new one
+                neworder.BillingAddressId = shippingAddressId;
+                neworder.Date = DateTime.Now;
+                neworder.Status = "Shipping";
+     
                 context.Orders.Add(neworder);
                 context.SaveChanges();
-
-                // Find the order just created
-                var newOrderVar = (from order in context.Orders
-                                   where order.UserId == userId
-                                   select order).FirstOrDefault();
 
                 var MyCartItems = from i in context.CartItems
                                   where i.UserId == userId
                                   orderby i.ProductId
                                   select i;
+
                 double amount = 0;
                 foreach (CartItem i in MyCartItems)
                 {
                     // Build new OrderProduct entry
                     var newOrderProduct = new OrderProduct();
 
-                    newOrderProduct.OrderId = newOrderVar.Id;
+                    newOrderProduct.OrderId = neworder.Id;
                     newOrderProduct.ProductId = i.ProductId;
-                    newOrderProduct.Quantity = Int32.Parse((i.Quantity).ToString());
-                    amount = amount + (Int32.Parse((i.Quantity).ToString()) * i.ProductId.Value);
+                    newOrderProduct.Quantity = (int) i.Quantity;
+                    amount = amount + (int) i.Quantity * i.Product.Value;
 
                     context.OrderProducts.Add(newOrderProduct);
-
                     context.CartItems.Remove(i);
                 }
 
                 neworder.Total = amount;
 
                 context.SaveChanges();
-                RedirectUser(newOrderVar.Id.ToString(), amount.ToString());
+                RedirectUser(neworder.Id.ToString(), amount.ToString());
 
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
-
             }
-
         }
 
         private void RedirectUser(string v1, string v2)
@@ -179,9 +178,7 @@ namespace Gameverse.Code
 
         protected override void OnPreRender(EventArgs e)
         {
-
             ViewState["update"] = Session["update"];
         }
-
     }
 }

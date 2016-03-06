@@ -7,10 +7,10 @@
             <asp:Repeater runat="server" ID="rptListProducts">
                 <ItemTemplate>
                     <div id="listProducts" class="col-md-3">
-                        <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><asp:Image ID="imgCover" Height="200" runat="server" ImageUrl='<%#Eval("ImageUrl")%>'></asp:Image></a>
-                        <h4><asp:Label ID="lblName" runat="server"  Text='<%#Eval("Name")%>'></asp:Label></h4>
-                        <h5><asp:Label ID="lblPlatform" runat="server" Text='<%#Eval("Platform")%>'></asp:Label></h5>
-                        <h4><asp:Label ID="lblPrice" runat="server" Text='<%#Eval("Value")%>'></asp:Label></h4>
+                        <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="200" src="<%#Eval("ImageUrl")%>"/></a>
+                        <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><h4><%#Eval("Name")%></h4></a>
+                        <p><%#Eval("Platform")%></p>
+                        <h4 style="color:red;">$<%#Eval("Value")%></h4>
                     </div>
     	        </ItemTemplate>
             </asp:Repeater> 

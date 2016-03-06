@@ -47,7 +47,7 @@ namespace Gameverse.Code
                         imgCover.ImageUrl = game.ImageUrl;
                         lblName.Text = game.Name;
                         lblPlatform.Text = game.Platform;
-                        lblPrice.Text = game.Value.ToString();
+                        lblPrice.Text = "$" + game.Value.ToString();
                         lblDescription.Text = game.Description;
                         lblReleaseDate.Text = game.ReleaseDate.ToShortDateString();
                         lblGenre.Text = game.Genre.Name;
@@ -78,7 +78,7 @@ namespace Gameverse.Code
 
             if (Session["LoggedInId"] == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("Login.aspx?error=1");
             }
 
             using (GameverseContext context = new GameverseContext())

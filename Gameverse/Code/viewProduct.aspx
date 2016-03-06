@@ -12,7 +12,7 @@
                 <h2><asp:Label ID="lblName" runat="server"></asp:Label></h2>
                 <h4><asp:Label ID="lblPlatform" runat="server"></asp:Label></h4>
                 <br/>
-                <h2><asp:Label ID="lblPrice" runat="server"></asp:Label></h2>
+                <h2><asp:Label ID="lblPrice" runat="server" ForeColor="Red"></asp:Label></h2>
             </div>
             <div class="col-md-3">
                 <br/>

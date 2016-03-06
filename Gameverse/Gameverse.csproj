@@ -78,9 +78,9 @@
     <Content Include="Assets\Images\Fallout4.jpg" />
     <Content Include="Assets\Images\FarCryPrimal.jpg" />
     <Content Include="Assets\Images\ForzaMotorsport6.jpg" />
+    <Content Include="Assets\Images\JumboBackground.jpg" />
     <Content Include="Assets\Images\LEGOMarvel%27sAvengers.jpg" />
     <Content Include="Assets\Images\MarioKart8.jpg" />
-    <Content Include="Assets\Images\RiseOfTheTombRaider.jpg" />
     <Content Include="Assets\Images\Splatoon.jpg" />
     <Content Include="Assets\Images\StarWarsBattlefront.jpg" />
     <Content Include="Assets\Images\StreetFighterV.jpg" />

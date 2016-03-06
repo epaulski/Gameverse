@@ -6,25 +6,20 @@
     <div class="jumbotron">
         <div id="carAdvertisementGames"class="carousel slide" data-ride="carousel" data-interval="4000">
             <div class="carousel-inner">
-                <!-- START JUMBOTRON -->
-                <asp:Repeater runat="server"  ID="rptJumboFirst">
-                    <ItemTemplate>
-                        <div class="item active">
-    	                    <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
-                                </div>
-                                <div class="col-lg-8">
-                                    <h2><%#Eval("Name")%></h2>
-                                    <h4><%#Eval("Platform")%></h4>
-                                    <h3>$<%#Eval("Value")%></h3>
-                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"">See Details</a>
-                                </div>
-                            </div>
+                <div class="item active">
+    	            <div class="row">
+                        <div class="col-lg-4">
+                            <asp:Hyperlink ID="linkFirstGame" runat="server"><asp:Image ID="imgFirstGame" runat="server" Height="300"/></asp:Hyperlink>
                         </div>
-    	            </ItemTemplate>
-                </asp:Repeater> 
-                <asp:Repeater runat="server"  ID="rptJumboGames">
+                        <div class="col-lg-8">
+                            <h2><asp:Label ID="lblFirstGameName" runat="server"></asp:Label></h2>
+                            <h4><asp:Label ID="lblFirstGamePlatform" runat="server"></asp:Label></h4>
+                            <h3><asp:Label ID="lblFirstGamePrice" runat="server"></asp:Label></h3>
+                            <asp:Hyperlink ID="linkFirstGameDetails" runat="server" Text="See Details"></asp:Hyperlink>
+                        </div>
+                    </div>
+                </div>
+    	        <asp:Repeater runat="server"  ID="rptJumboGames">
                     <ItemTemplate>
                         <div class="item">
     	                    <div class="row">
@@ -47,14 +42,6 @@
                 <li data-target="#carAdvertisementGames" data-slide-to="1"></li>
                 <li data-target="#carAdvertisementGames" data-slide-to="2"></li>
             </ol>
-            <!--<div class="container">
-                <a class="left carousel-control" href="#carAdvertisementGames" data-slide="prev" style="background: transparent; color:grey;">
-                    <span class="glyphicon glyphicon-chevron-left black"></span>
-                </a>
-                <a class="right carousel-control" href="#carAdvertisementGames" data-slide="next" style="background: transparent; color:grey;">
-                    <span class="glyphicon glyphicon-chevron-right black"></span>
-                </a>
-            </div>-->
         </div>
     </div>
     <!-- END JUMBOTRON -->

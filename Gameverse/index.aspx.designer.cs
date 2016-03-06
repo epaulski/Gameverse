@@ -13,13 +13,58 @@ namespace Gameverse {
     public partial class index {
         
         /// <summary>
-        /// rptJumboFirst control.
+        /// linkFirstGame control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptJumboFirst;
+        protected global::System.Web.UI.WebControls.HyperLink linkFirstGame;
+        
+        /// <summary>
+        /// imgFirstGame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgFirstGame;
+        
+        /// <summary>
+        /// lblFirstGameName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFirstGameName;
+        
+        /// <summary>
+        /// lblFirstGamePlatform control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFirstGamePlatform;
+        
+        /// <summary>
+        /// lblFirstGamePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFirstGamePrice;
+        
+        /// <summary>
+        /// linkFirstGameDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkFirstGameDetails;
         
         /// <summary>
         /// rptJumboGames control.
