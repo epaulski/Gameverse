@@ -11,7 +11,8 @@ namespace Gameverse.Code
     public partial class viewProduct : System.Web.UI.Page
     {
         string pid;
-        private int UserID;
+        int UserID;
+        bool isAvailable;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +31,6 @@ namespace Gameverse.Code
             {
                 //lblMessage.Text = "No User ID Provided";
             }
-
             
             pid = Request.QueryString["product"];
         }
@@ -55,12 +55,21 @@ namespace Gameverse.Code
 
                         if (!Page.IsPostBack)
                         {
-                            for (int i = 1; i <= game.Quantity; i++)
+                            if(game.Quantity == 0)
                             {
-                                ListItem item = new ListItem();
-                                item.Text = i.ToString();
-                                drpQuantity.Items.Add(item);
+                                btnAddToCart.Enabled = false;
+                                btnAddToCart.CssClass = "btn btn-default";
+                                btnAddToCart.Text = "Not Available";
                             }
+                            else
+                            {
+                                for (int i = 1; i <= game.Quantity; i++)
+                                {
+                                    ListItem item = new ListItem();
+                                    item.Text = i.ToString();
+                                    drpQuantity.Items.Add(item);
+                                }
+                            }               
                         }                      
                     }
                     else

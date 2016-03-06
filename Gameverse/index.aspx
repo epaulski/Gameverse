@@ -8,10 +8,10 @@
             <div class="carousel-inner">
                 <div class="item active">
     	            <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <asp:Hyperlink ID="linkFirstGame" runat="server"><asp:Image ID="imgFirstGame" runat="server" Height="300"/></asp:Hyperlink>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-md-8">
                             <h2><asp:Label ID="lblFirstGameName" runat="server"></asp:Label></h2>
                             <h4><asp:Label ID="lblFirstGamePlatform" runat="server"></asp:Label></h4>
                             <h3><asp:Label ID="lblFirstGamePrice" runat="server"></asp:Label></h3>
@@ -23,10 +23,10 @@
                     <ItemTemplate>
                         <div class="item">
     	                    <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-md-4">
                                    <a href="/Code/viewProduct.aspx?product=<%#Eval("Id")%>"><img height="300" src="<%#Eval("ImageUrl")%>"/></a>
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-md-8">
                                     <h2><%#Eval("Name")%></h2>
                                     <h4><%#Eval("Platform")%></h4>
                                     <h3>$<%#Eval("Value")%></h3>

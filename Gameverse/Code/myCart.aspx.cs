@@ -135,6 +135,11 @@ namespace Gameverse.Code
                     newOrderProduct.ProductId = i.ProductId;
                     newOrderProduct.Quantity = (int) i.Quantity;
                     amount = amount + (int) i.Quantity * i.Product.Value;
+     
+                    i.Product.Quantity = i.Product.Quantity - (int)i.Quantity;
+                    if (i.Product.Quantity < 0){
+                        i.Product.Quantity = 0;
+                    }
 
                     context.OrderProducts.Add(newOrderProduct);
                     context.CartItems.Remove(i);
