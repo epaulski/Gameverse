@@ -1,6 +1,7 @@
 ﻿using Gameverse.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -31,7 +32,7 @@ namespace Gameverse.Code
             linkRegister.Enabled = false;
 
             userId = int.Parse(Session["LoggedInId"].ToString());
-            
+
             LoadCart();
         }
 
@@ -78,8 +79,8 @@ namespace Gameverse.Code
             using (GameverseContext context = new GameverseContext())
             {
                 var citem = (from ci in context.CartItems
-                           where ci.UserId == userId && ci.Id == item
-                           select ci).FirstOrDefault();
+                             where ci.UserId == userId && ci.Id == item
+                             select ci).FirstOrDefault();
                 if (citem != null)
                 {
                     context.CartItems.Remove(citem);
@@ -93,9 +94,94 @@ namespace Gameverse.Code
             }
         }
 
-        protected void ClickCheckOut(object sender, EventArgs e)
+        protected void ClickNextToPayment(object sender, EventArgs e)
         {
-            Response.Redirect("checkOut.aspx");
+            if (Session["LoggedInId"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            using (GameverseContext context = new GameverseContext())
+            {
+                // Build new Order entry
+                var neworder = new Order();
+                neworder.UserId = userId;
+                neworder.ShippingAddressId = 1;
+                neworder.Date = DateTime.Now;
+                neworder.Status = "";
+                neworder.BillingAddressId = 1;
+
+                context.Orders.Add(neworder);
+                context.SaveChanges();
+
+                // Find the order just created
+                var newOrderVar = (from order in context.Orders
+                                   where order.UserId == userId
+                                   select order).FirstOrDefault();
+
+                var MyCartItems = from i in context.CartItems
+                                  where i.UserId == userId
+                                  orderby i.ProductId
+                                  select i;
+                double amount = 0;
+                foreach (CartItem i in MyCartItems)
+                {
+                    // Build new OrderProduct entry
+                    var newOrderProduct = new OrderProduct();
+
+                    newOrderProduct.OrderId = newOrderVar.Id;
+                    newOrderProduct.ProductId = i.ProductId;
+                    newOrderProduct.Quantity = Int32.Parse((i.Quantity).ToString());
+                    amount = amount + (Int32.Parse((i.Quantity).ToString()) * i.ProductId.Value);
+
+                    context.OrderProducts.Add(newOrderProduct);
+
+                    context.CartItems.Remove(i);
+                }
+
+                neworder.Total = amount;
+
+                context.SaveChanges();
+                RedirectUser(newOrderVar.Id.ToString(), amount.ToString());
+
+                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+
+            }
+
         }
+
+        private void RedirectUser(string v1, string v2)
+        {
+            //Assign the values for the properties we need to pass to the service
+            String AppId = ConfigurationManager.AppSettings["CreditAppId"];
+            String SharedKey = ConfigurationManager.AppSettings["CreditAppSharedKey"];
+            String AppTransId = v1;
+            String AppTransAmount = v2;
+
+            // Hash the values so the server can verify the values are original
+            String hash = HttpUtility.UrlEncode(CreditAuthorizationClient.GenerateClientRequestHash(SharedKey, AppId, AppTransId, AppTransAmount));
+
+            //Create the URL and  concatenate  the Query String values
+            String url = "http://ectweb2.cs.depaul.edu/ECTCreditGateway/Authorize.aspx";
+            url = url + "?AppId=" + AppId;
+            url = url + "&TransId=" + AppTransId;
+            url = url + "&AppTransAmount=" + AppTransAmount;
+            url = url + "&AppHash=" + hash;
+
+            //Redirect the User to the Service
+            Response.Redirect(url);
+        }
+
+        protected void ClickNextToAddress(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+
+            ViewState["update"] = Session["update"];
+        }
+
     }
 }

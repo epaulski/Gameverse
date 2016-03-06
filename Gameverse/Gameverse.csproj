@@ -98,12 +98,12 @@
     <Content Include="Bootstrap\js\bootstrap.min.js" />
     <Content Include="Bootstrap\js\npm.js" />
     <Content Include="Assets\Images\LogoGrey.png" />
-    <Content Include="Code\checkOut.aspx" />
     <Content Include="Code\contact.aspx" />
     <Content Include="Code\listProducts.aspx" />
     <Content Include="Code\login.aspx" />
     <Content Include="Code\myCart.aspx" />
     <Content Include="Code\myOrders.aspx" />
+    <Content Include="Code\return.aspx" />
     <Content Include="Code\settings.aspx" />
     <Content Include="Code\viewProduct.aspx" />
     <Content Include="index.aspx" />
@@ -123,7 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\about.aspx.cs">
@@ -132,13 +134,6 @@
     </Compile>
     <Compile Include="Code\about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Code\checkOut.aspx.cs">
-      <DependentUpon>checkOut.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Code\checkOut.aspx.designer.cs">
-      <DependentUpon>checkOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
@@ -175,6 +170,13 @@
     <Compile Include="Code\myOrders.aspx.designer.cs">
       <DependentUpon>myOrders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\return.aspx.cs">
+      <DependentUpon>return.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\return.aspx.designer.cs">
+      <DependentUpon>return.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Code\SecuredPassword.cs" />
     <Compile Include="Code\settings.aspx.cs">
       <DependentUpon>settings.aspx</DependentUpon>
@@ -190,6 +192,7 @@
     <Compile Include="Code\viewProduct.aspx.designer.cs">
       <DependentUpon>viewProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\CreditAuthorizationClient.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

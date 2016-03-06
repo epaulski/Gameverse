@@ -14,6 +14,16 @@
 			</asp:TableHeaderRow>
 		</asp:Table>
         <br />
-	    <asp:Button ID="BtnCheckOut" runat="server" Text="Check Out" CssClass="btn btn-primary btn-lg" OnClick="ClickCheckOut" />
+        
+        <asp:Button ID="ButtonNextToAddress" runat="server" Text="Next to Address" CssClass="btn btn-primary btn-lg" OnClick="ClickNextToAddress" />
+
+        <br />
+        <asp:Panel ID="Panel1" runat="server" Visible="false">
+            <asp:Button ID="BtnNexToToPayment" runat="server" Text="Next to Payment" CssClass="btn btn-primary btn-lg" OnClick="ClickNextToPayment" />
+        </asp:Panel>
+        <br />
+        <asp:Panel ID="Panel2" runat="server" Visible="false">
+        </asp:Panel>
+        
 	</section>
 </asp:Content>
