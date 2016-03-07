@@ -2,7 +2,10 @@
 
 <asp:Content ID="mainContent" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">  
     <br/><br/>
-    <div id="" class="container">
+    <asp:Panel ID="pnlError" Visible="false" runat="server">
+        <div class="alert alert-danger" role="alert"><asp:Label runat="server" ID="lblMessage"></asp:Label></div>
+    </asp:Panel>
+    <asp:Panel ID="pnlSuccess" Visible="false" runat="server" CssClass="container">
         <div class="row">
             <div class="col-md-3">
                 <br/>
@@ -46,7 +49,6 @@
                 <p><asp:Label ID="lblRating" runat="server"></asp:Label></p>
             </div>
         </div>
-    </div>
-
+    </asp:Panel>
 </asp:Content>
 

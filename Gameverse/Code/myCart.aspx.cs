@@ -31,6 +31,9 @@ namespace Gameverse.Code
             linkRegister.Text = "Hello, " + Session["FirstName"];
             linkRegister.Enabled = false;
 
+            Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+            lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
+
             userId = int.Parse(Session["LoggedInId"].ToString());
 
             LoadCart();
@@ -45,29 +48,37 @@ namespace Gameverse.Code
                                   orderby i.ProductId
                                   select i;
 
-                foreach (CartItem i in MyCartItems)
+                if (MyCartItems.Count() == 0)
                 {
-                    TableRow row = new TableRow();
-                    TableCell cell;
+                    Panel3.Visible = true;
+                }
+                else
+                {
+                    foreach (CartItem i in MyCartItems)
+                    {
+                        TableRow row = new TableRow();
+                        TableCell cell;
 
-                    cell = new TableCell();
-                    cell.Text = i.Product.Name + " - " + i.Product.Platform;
-                    row.Cells.Add(cell);
+                        cell = new TableCell();
+                        cell.Text = i.Product.Name + " - " + i.Product.Platform;
+                        row.Cells.Add(cell);
 
-                    cell = new TableCell();
-                    cell.Text = i.Quantity.ToString();
-                    row.Cells.Add(cell);
+                        cell = new TableCell();
+                        cell.Text = i.Quantity.ToString();
+                        row.Cells.Add(cell);
 
-                    cell = new TableCell();
-                    Button link = new Button();
-                    link.Text = "Remove";
-                    link.CssClass = "btn btn-danger btn-sm";
-                    link.Click +=
-                         new EventHandler((s, e) => RemoveClick(s, e, i.Id));
-                    cell.Controls.Add(link);
-                    row.Cells.Add(cell);
+                        cell = new TableCell();
+                        Button link = new Button();
+                        link.Text = "Remove";
+                        link.CssClass = "btn btn-danger btn-sm";
+                        link.Click +=
+                             new EventHandler((s, e) => RemoveClick(s, e, i.Id));
+                        cell.Controls.Add(link);
+                        row.Cells.Add(cell);
 
-                    TableCart.Rows.Add(row);
+                        TableCart.Rows.Add(row);
+                    }
+                    Panel1.Visible = true;
                 }
             }
         }
@@ -82,8 +93,12 @@ namespace Gameverse.Code
                              select ci).FirstOrDefault();
                 if (citem != null)
                 {
+
                     context.CartItems.Remove(citem);
                     context.SaveChanges();
+
+                    Session["CartQuantity"] = (int)Session["CartQuantity"] - citem.Quantity;
+
                     Response.Redirect("myCart.aspx");
                 }
                 else
@@ -146,8 +161,10 @@ namespace Gameverse.Code
                 }
 
                 neworder.Total = amount;
-
                 context.SaveChanges();
+
+                Session["CartQuantity"] = 0;
+
                 RedirectUser(neworder.Id.ToString(), amount.ToString());
 
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
@@ -178,7 +195,7 @@ namespace Gameverse.Code
 
         protected void ClickNextToAddress(object sender, EventArgs e)
         {
-            Panel1.Visible = true;
+            Panel2.Visible = true;
         }
 
         protected override void OnPreRender(EventArgs e)

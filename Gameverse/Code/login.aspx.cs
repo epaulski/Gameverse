@@ -35,6 +35,9 @@ namespace Gameverse.Code
                 linkRegister.Text = "Hello, " + Session["FirstName"];
                 linkRegister.Enabled = false;
 
+                Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+                lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
+
                 panelLogin.Visible = false;
                 panelLogout.Visible = true;
             }
@@ -61,7 +64,14 @@ namespace Gameverse.Code
                 {
                     Session["LoggedInId"] = user.Id.ToString();
                     Session["FirstName"] = user.Name.Split(' ')[0];
+
+                    var cartQuantity = (from c in context.CartItems where c.UserId == user.Id select c.Quantity).ToList().Sum();
                     
+                    Session["CartQuantity"] = cartQuantity == null ? 0 : cartQuantity;
+
+                    Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+                    lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
+
                     Response.Redirect("../index.aspx");
                 }
                 else

@@ -12,13 +12,22 @@ namespace Gameverse.Code
     {
         string pid;
         int UserID;
-        bool isAvailable;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["LoggedInId"] != null)
             {
                 UserID = int.Parse(Session["LoggedInId"].ToString());
+
+                HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
+                linkSession.Text = "Logout";
+
+                HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
+                linkRegister.Text = "Hello, " + Session["FirstName"];
+                linkRegister.Enabled = false;
+
+                Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+                lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
             }
             
 
@@ -29,7 +38,8 @@ namespace Gameverse.Code
             }
             else
             {
-                //lblMessage.Text = "No User ID Provided";
+                lblMessage.Text = "No Product ID Provided";
+                pnlError.Visible = true;
             }
             
             pid = Request.QueryString["product"];
@@ -70,16 +80,17 @@ namespace Gameverse.Code
                                     drpQuantity.Items.Add(item);
                                 }
                             }               
-                        }                      
+                        }
+                        pnlSuccess.Visible = true;
                     }
                     else
                     {
-                        // message
+                        lblMessage.Text = "Sorry, that product doesn't exist.";
+                        pnlError.Visible = true;
                     }
                 }
             }
-            catch (Exception)
-            { }
+            catch (Exception){ }
         }
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
@@ -89,29 +100,28 @@ namespace Gameverse.Code
             {
                 Response.Redirect("Login.aspx?error=1");
             }
-
-            using (GameverseContext context = new GameverseContext())
+            try
             {
-                int productId = Int32.Parse(pid);
-                int quant = Int32.Parse(drpQuantity.Text);
-
-                CartItem newitem = new CartItem();
-
-                newitem.ProductId = productId;
-                newitem.Quantity = quant;
-                newitem.UserId = UserID;
-
-                if (newitem != null)
+                using (GameverseContext context = new GameverseContext())
                 {
+                    int productId = Int32.Parse(pid);
+                    int quant = Int32.Parse(drpQuantity.Text);
+
+                    CartItem newitem = new CartItem();
+
+                    newitem.ProductId = productId;
+                    newitem.Quantity = quant;
+                    newitem.UserId = UserID;
+
                     context.CartItems.Add(newitem);
                     context.SaveChanges();
+
+                    Session["CartQuantity"] = (int)Session["CartQuantity"] + newitem.Quantity;
+
                     Response.Redirect("myCart.aspx");
                 }
-                else
-                {
-                    Message.Text = "Sorry, the item can't be added.";
-                }
             }
+            catch (Exception) { }            
         }
     }
 }

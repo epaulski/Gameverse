@@ -73,7 +73,10 @@
                                     <!--<li><a href="/Code/login.aspx"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>-->
                                 </ul>
                             </li>
-                            <li><a href="/Code/myCart.aspx"><span class="glyphicon glyphicon-shopping-cart btn-lg"></span></a></li>
+                            <li>
+                                <a href="/Code/myCart.aspx" style="display: inline;"><span class="glyphicon glyphicon-shopping-cart btn-lg"></span></a>
+                                <span class="badge badge-red" id="cartQuantity"><asp:Label ID="lblCartQuantity" runat="server" Text="0"></asp:Label></span>
+                            </li>
                         </ul>
                     </div>
                 </div>

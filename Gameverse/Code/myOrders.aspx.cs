@@ -24,6 +24,9 @@ namespace Gameverse.Code
                 linkRegister.Text = "Hello, " + Session["FirstName"];
                 linkRegister.Enabled = false;
 
+                Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+                lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
+
                 userId = Int32.Parse((String)Session["LoggedInId"]);
 
                 LoadMyOrders();

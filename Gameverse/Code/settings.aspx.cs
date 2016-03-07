@@ -26,6 +26,9 @@ namespace Gameverse.Code
                 linkRegister.Text = "Hello, " + Session["FirstName"];
                 linkRegister.Enabled = false;
 
+                Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+                lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
+
                 var currentId = int.Parse(Session["LoggedInId"].ToString());
 
                 using (GameverseContext context = new GameverseContext())

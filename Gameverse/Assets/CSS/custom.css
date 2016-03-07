@@ -154,3 +154,10 @@ th, td {
 .table_cart tr th {
    width: 140px;
 }
+
+#cartQuantity{
+    position: relative;
+    bottom: 12px;
+    right: 40px;
+    background-color: #ff3939;
+}

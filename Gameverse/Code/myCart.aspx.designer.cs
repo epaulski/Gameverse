@@ -22,6 +22,15 @@ namespace Gameverse.Code {
         protected global::System.Web.UI.WebControls.Label Message;
         
         /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
         /// TableCart control.
         /// </summary>
         /// <remarks>
@@ -31,22 +40,22 @@ namespace Gameverse.Code {
         protected global::System.Web.UI.WebControls.Table TableCart;
         
         /// <summary>
-        /// ButtonNextToAddress control.
+        /// BtnNextToAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonNextToAddress;
+        protected global::System.Web.UI.WebControls.Button BtnNextToAddress;
         
         /// <summary>
-        /// Panel1 control.
+        /// Panel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel Panel2;
         
         /// <summary>
         /// BtnNexToToPayment control.
@@ -58,12 +67,12 @@ namespace Gameverse.Code {
         protected global::System.Web.UI.WebControls.Button BtnNexToToPayment;
         
         /// <summary>
-        /// Panel2 control.
+        /// Panel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel Panel3;
     }
 }

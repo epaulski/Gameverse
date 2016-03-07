@@ -22,6 +22,9 @@ namespace Gameverse.Code
                 HyperLink linkRegister = (HyperLink)Master.FindControl("linkRegister");
                 linkRegister.Text = "Hello, " + Session["FirstName"];
                 linkRegister.Enabled = false;
+
+                Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
+                lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
             }
         
             String filter = "";
