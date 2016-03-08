@@ -11,8 +11,8 @@ namespace Gameverse.Code
 {
     public partial class myCart : System.Web.UI.Page
     {
-        private int userId;
-        private bool isNewAddress;
+        int userId;
+        Address newAddress;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,12 +20,6 @@ namespace Gameverse.Code
             {
                 Response.Redirect("login.aspx?error=1");
             }
-            else if (!IsPostBack)
-            {
-                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
-            }
-
-            isNewAddress = false;
 
             HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
             linkSession.Text = "Logout";
@@ -36,9 +30,9 @@ namespace Gameverse.Code
 
             Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
             lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
-
+            
             userId = int.Parse(Session["LoggedInId"].ToString());
-
+            
             LoadCart();
         }
 
@@ -94,9 +88,9 @@ namespace Gameverse.Code
                 var citem = (from ci in context.CartItems
                              where ci.UserId == userId && ci.Id == item
                              select ci).FirstOrDefault();
+
                 if (citem != null)
                 {
-
                     context.CartItems.Remove(citem);
                     context.SaveChanges();
 
@@ -115,7 +109,7 @@ namespace Gameverse.Code
         {
             if (Session["LoggedInId"] == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("login.aspx?error=1");
             }
 
             using (GameverseContext context = new GameverseContext())
@@ -123,32 +117,24 @@ namespace Gameverse.Code
                 // Build new Order entry
                 var neworder = new Order();
                 neworder.UserId = userId;
+                neworder.Date = DateTime.Now;
+                neworder.Status = "Not Approved";
+                
+                PanelAddAddress.Visible = false;
+                BtnNexToToPayment.Visible = true;
 
                 // If the address is new, ship to the last address added
                 // If not, get the value from the dropdownlist
-                int shippingAddressId;
-                if (isNewAddress)
+                if (newAddress != null)
                 {
-                    var shippingAddress = (from a in context.Addresses
-                                             where a.UserId == userId
-                                             select a.Id).FirstOrDefault();
-                    neworder.ShippingAddressId = shippingAddress;
+                    context.Addresses.Add(this.newAddress);
+                    context.SaveChanges();
+                    neworder.ShippingAddressId = this.newAddress.Id;
                 }
                 else
                 {
-                    shippingAddressId = Int32.Parse(DropDownListAddress.SelectedValue);
-                    neworder.ShippingAddressId = shippingAddressId;
+                    neworder.ShippingAddressId = Int32.Parse(DropDownListAddress.SelectedItem.Value);
                 }
-              
-
-                // TODO: check if the user wants to use the home address as billing address or add a new one
-                //neworder.BillingAddressId = shippingAddressId;
-                
-                neworder.Date = DateTime.Now;
-                neworder.Status = "Not Approved";
-     
-                context.Orders.Add(neworder);
-                context.SaveChanges();
 
                 var MyCartItems = from i in context.CartItems
                                   where i.UserId == userId
@@ -158,14 +144,15 @@ namespace Gameverse.Code
                 double amount = 0;
                 foreach (CartItem i in MyCartItems)
                 {
-                    amount = amount + (int) i.Quantity * i.Product.Value;
+                    amount = amount + (int)i.Quantity * i.Product.Value;
                 }
 
                 neworder.Total = amount;
+
+                context.Orders.Add(neworder);
                 context.SaveChanges();
                 
-                RedirectUser(neworder.Id.ToString(), amount.ToString());
-         
+                RedirectUser(neworder.Id.ToString(), amount.ToString());        
             }
         }
 
@@ -196,11 +183,14 @@ namespace Gameverse.Code
             using (GameverseContext context = new GameverseContext())
             {
                 Panel2.Visible = true;
-                List<Address> addresses = (from a in context.Addresses orderby a.Id descending select a).ToList();
-                DropDownListAddress.DataTextField = "AddressLine1";
-                DropDownListAddress.DataValueField = "Id";
-                DropDownListAddress.DataSource = addresses;
-                DropDownListAddress.DataBind();
+                List<Address> addresses = (from a in context.Addresses orderby a.Id descending where a.UserId == userId select a).ToList();
+                for (int i = 0; i < addresses.Count(); i++)
+                {
+                    ListItem item = new ListItem();
+                    item.Text = addresses[i].Type + " - " + addresses[i].AddressLine1 + ", " + addresses[i].AddressLine2;
+                    item.Value = addresses[i].Id.ToString();
+                    DropDownListAddress.Items.Add(item);
+                }
             }
         }
 
@@ -213,7 +203,7 @@ namespace Gameverse.Code
                 AddressAdded.Visible = false;
                 BtnNexToToPayment.Visible = true;
             }
-            if (RadioButtonList.SelectedItem.Value == "2")
+            else if (RadioButtonList.SelectedItem.Value == "2")
             {
                 PanelAddAddress.Visible = true;
                 PanelChooseAddress.Visible = false;
@@ -226,33 +216,26 @@ namespace Gameverse.Code
         {
             if (Page.IsValid)
             {
-                using (GameverseContext context = new GameverseContext())
-                {
-                    Address newaddress = new Address();
+                newAddress = new Address();
 
-                    newaddress.AddressLine1 = TextBoxAddress1.Text;
-                    newaddress.AddressLine2 = TextBoxAddress2.Text;
-                    newaddress.City = TextBoxCity.Text;
-                    newaddress.State = TextBoxState.Text;
-                    newaddress.Zipcode = TextBoxZipCode.Text;
-                    newaddress.Type = "Other";
-                    newaddress.UserId = userId;
+                newAddress.AddressLine1 = TextBoxAddress1.Text;
+                newAddress.AddressLine2 = TextBoxAddress2.Text;
+                newAddress.City = TextBoxCity.Text;
+                newAddress.State = TextBoxState.Text;
+                newAddress.Zipcode = TextBoxZipCode.Text;
+                newAddress.Type = "Other";
+                newAddress.UserId = userId;
 
-                    context.Addresses.Add(newaddress);
-                    context.SaveChanges();
+                AddressAdded.Visible = true;
 
-                    AddressAdded.Visible = true;
-                    Address1.Text = newaddress.AddressLine1;
-                    Address2.Text = newaddress.AddressLine2;
-                    City.Text = newaddress.City;
-                    State.Text = newaddress.State;
-                    ZipCode.Text = newaddress.Zipcode;
-
-                    PanelAddAddress.Visible = false;
-
-                    isNewAddress = true;
-                    BtnNexToToPayment.Visible = true;
-                }
+                Address1.Text = newAddress.AddressLine1;
+                Address2.Text = newAddress.AddressLine2;
+                City.Text = newAddress.City;
+                State.Text = newAddress.State;
+                ZipCode.Text = newAddress.Zipcode;
+                
+                PanelAddAddress.Visible = false;
+                BtnNexToToPayment.Visible = true;                
             }
         }
     }
