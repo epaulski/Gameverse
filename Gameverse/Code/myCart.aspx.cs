@@ -130,7 +130,7 @@ namespace Gameverse.Code
                 // TODO: check if the user wants to use the home address as billing address or add a new one
                 neworder.BillingAddressId = shippingAddressId;
                 neworder.Date = DateTime.Now;
-                neworder.Status = "Shipping";
+                neworder.Status = "Not Approved";
      
                 context.Orders.Add(neworder);
                 context.SaveChanges();
@@ -143,31 +143,14 @@ namespace Gameverse.Code
                 double amount = 0;
                 foreach (CartItem i in MyCartItems)
                 {
-                    // Build new OrderProduct entry
-                    var newOrderProduct = new OrderProduct();
-
-                    newOrderProduct.OrderId = neworder.Id;
-                    newOrderProduct.ProductId = i.ProductId;
-                    newOrderProduct.Quantity = (int) i.Quantity;
                     amount = amount + (int) i.Quantity * i.Product.Value;
-     
-                    i.Product.Quantity = i.Product.Quantity - (int)i.Quantity;
-                    if (i.Product.Quantity < 0){
-                        i.Product.Quantity = 0;
-                    }
-
-                    context.OrderProducts.Add(newOrderProduct);
-                    context.CartItems.Remove(i);
                 }
 
                 neworder.Total = amount;
                 context.SaveChanges();
-
-                Session["CartQuantity"] = 0;
-
+                
                 RedirectUser(neworder.Id.ToString(), amount.ToString());
-
-                Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
+         
             }
         }
 

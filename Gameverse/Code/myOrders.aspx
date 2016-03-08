@@ -32,7 +32,6 @@
                                 <p style="font-weight: bold;">Total</p>
                                 <p style="font-weight: bold;">Date</p>
                                 <p style="font-weight: bold;">Shipping address</p><br/>
-                                <p style="font-weight: bold;">Billing address</p>
                             </div>
                             <div class="col-md-9">
                                 <p><%#Eval("Status")%></p>
@@ -42,11 +41,6 @@
                                     <p style="display:inline"><%#Eval("User.Name")%></p><br/>
                                     <p style="display:inline"><%#Eval("ShippingAddress.AddressLine1")%>, <%#Eval("ShippingAddress.AddressLine2")%></p><br/>
                                     <p><%#Eval("ShippingAddress.City")%>, <%#Eval("ShippingAddress.State")%>, <%#Eval("ShippingAddress.Zipcode")%></p>
-                                </p>
-                                <p>
-                                    <p style="display:inline"><%#Eval("User.Name")%></p><br/>
-                                    <p style="display:inline"><%#Eval("BillingAddress.AddressLine1")%>, <%#Eval("BillingAddress.AddressLine2")%></p><br/>
-                                    <p><%#Eval("BillingAddress.City")%>, <%#Eval("BillingAddress.State")%>, <%#Eval("BillingAddress.Zipcode")%></p>
                                 </p>
                             </div>
                         </div>          

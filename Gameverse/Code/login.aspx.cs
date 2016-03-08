@@ -12,7 +12,6 @@ namespace Gameverse.Code
     {
         protected void Page_Load()
         {
-
             if (Request.QueryString["error"] != null)
             {
                 panelError.Visible = true;

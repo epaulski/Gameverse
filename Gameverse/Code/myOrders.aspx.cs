@@ -37,7 +37,7 @@ namespace Gameverse.Code
         {
             using (GameverseContext context = new GameverseContext())
             {
-                var myOrders = (from o in context.Orders where o.UserId == userId select o).ToList();
+                var myOrders = (from o in context.Orders where o.UserId == userId && o.Status != "Not Approved" select o).ToList();
                 rptOrders.DataSource = myOrders;
                 rptOrders.DataBind();
             }     

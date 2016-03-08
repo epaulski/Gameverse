@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gameverse.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -31,12 +32,51 @@ namespace Gameverse.Code
 
                 if (CreditAuthorizationClient.VerifyServerResponseHash(hash, SharedKey, AppId, AppTransId, AppTransAmount, status))
                 {
+                    int orderId = Int32.Parse(AppTransId);
                     switch (status)
                     {
-                        case ("A"): LabelStatus.Text = "Thank You For Your Purchase!"; break;
+                        case ("A"):
+                            using (GameverseContext context = new GameverseContext())
+                            {
+                                foreach (CartItem i in context.CartItems)
+                                {
+                                    // Build new OrderProduct entry
+                                    var newOrderProduct = new OrderProduct();
+
+                                    newOrderProduct.OrderId = orderId;
+                                    newOrderProduct.ProductId = i.ProductId;
+                                    newOrderProduct.Quantity = (int)i.Quantity;
+
+                                    i.Product.Quantity = i.Product.Quantity - (int)i.Quantity;
+                                    if (i.Product.Quantity < 0)
+                                    {
+                                        i.Product.Quantity = 0;
+                                    }
+
+                                    context.OrderProducts.Add(newOrderProduct);
+                                    context.CartItems.Remove(i);
+                                }
+                                var order = (from o in context.Orders where o.Id == orderId select o).FirstOrDefault();
+                                order.Status = "Shipping";
+                                
+                                context.SaveChanges();
+                            }
+                               
+                            Session["CartQuantity"] = 0;
+
+                            LabelStatus.Text = "Thank You For Your Purchase!";
+                            break;
+
                         case ("C"):
+                            using (GameverseContext context = new GameverseContext())
+                            {
+                                var order = (from o in context.Orders where o.Id == orderId select o).FirstOrDefault();
+
+                                context.Orders.Remove(order);
+                                context.SaveChanges();
+                            }
+                              
                             LabelStatus.Text = "Transaction Denied!"; break;
-                            ;
                     }
                 }
                 else

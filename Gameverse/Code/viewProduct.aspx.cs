@@ -107,16 +107,25 @@ namespace Gameverse.Code
                     int productId = Int32.Parse(pid);
                     int quant = Int32.Parse(drpQuantity.Text);
 
-                    CartItem newitem = new CartItem();
+                    var oldItem = (from c in context.CartItems where c.ProductId == productId select c).FirstOrDefault();
+                    
+                    if(oldItem != null)
+                    {
+                        oldItem.Quantity = oldItem.Quantity + quant;
+                    }
+                    else
+                    {
+                        CartItem newitem = new CartItem();
 
-                    newitem.ProductId = productId;
-                    newitem.Quantity = quant;
-                    newitem.UserId = UserID;
+                        newitem.ProductId = productId;
+                        newitem.Quantity = quant;
+                        newitem.UserId = UserID;
 
-                    context.CartItems.Add(newitem);
+                        context.CartItems.Add(newitem);
+                    }       
                     context.SaveChanges();
 
-                    Session["CartQuantity"] = (int)Session["CartQuantity"] + newitem.Quantity;
+                    Session["CartQuantity"] = (int)Session["CartQuantity"] + quant;
 
                     Response.Redirect("myCart.aspx");
                 }
