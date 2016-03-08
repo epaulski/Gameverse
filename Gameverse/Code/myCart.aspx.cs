@@ -12,6 +12,7 @@ namespace Gameverse.Code
     public partial class myCart : System.Web.UI.Page
     {
         private int userId;
+        private bool isNewAddress;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +24,8 @@ namespace Gameverse.Code
             {
                 Session["update"] = Server.UrlEncode(System.DateTime.Now.ToString());
             }
+
+            isNewAddress = false;
 
             HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
             linkSession.Text = "Logout";
@@ -121,14 +124,26 @@ namespace Gameverse.Code
                 var neworder = new Order();
                 neworder.UserId = userId;
 
-                // TODO: check if the user wants to use the home address as shipping address or add a new one
-                var shippingAddressId = (from a in context.Addresses
-                                         where a.UserId == userId 
-                                         select a.Id).FirstOrDefault();
+                // If the address is new, ship to the last address added
+                // If not, get the value from the dropdownlist
+                int shippingAddressId;
+                if (isNewAddress)
+                {
+                    var shippingAddress = (from a in context.Addresses
+                                             where a.UserId == userId
+                                             select a.Id).FirstOrDefault();
+                    neworder.ShippingAddressId = shippingAddress;
+                }
+                else
+                {
+                    shippingAddressId = Int32.Parse(DropDownListAddress.SelectedValue);
+                    neworder.ShippingAddressId = shippingAddressId;
+                }
+              
 
-                neworder.ShippingAddressId = shippingAddressId;
                 // TODO: check if the user wants to use the home address as billing address or add a new one
-                neworder.BillingAddressId = shippingAddressId;
+                //neworder.BillingAddressId = shippingAddressId;
+                
                 neworder.Date = DateTime.Now;
                 neworder.Status = "Not Approved";
      
@@ -178,12 +193,66 @@ namespace Gameverse.Code
 
         protected void ClickNextToAddress(object sender, EventArgs e)
         {
-            Panel2.Visible = true;
+            using (GameverseContext context = new GameverseContext())
+            {
+                Panel2.Visible = true;
+                List<Address> addresses = (from a in context.Addresses orderby a.Id descending select a).ToList();
+                DropDownListAddress.DataTextField = "AddressLine1";
+                DropDownListAddress.DataValueField = "Id";
+                DropDownListAddress.DataSource = addresses;
+                DropDownListAddress.DataBind();
+            }
         }
 
-        protected override void OnPreRender(EventArgs e)
+        protected void RadioButtonList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewState["update"] = Session["update"];
+            if (RadioButtonList.SelectedItem.Value == "1")
+            {
+                PanelChooseAddress.Visible = true;
+                PanelAddAddress.Visible = false;
+                AddressAdded.Visible = false;
+                BtnNexToToPayment.Visible = true;
+            }
+            if (RadioButtonList.SelectedItem.Value == "2")
+            {
+                PanelAddAddress.Visible = true;
+                PanelChooseAddress.Visible = false;
+                AddressAdded.Visible = false;
+                BtnNexToToPayment.Visible = false;
+            }
+        }
+
+        protected void ClickSaveAddress(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                using (GameverseContext context = new GameverseContext())
+                {
+                    Address newaddress = new Address();
+
+                    newaddress.AddressLine1 = TextBoxAddress1.Text;
+                    newaddress.AddressLine2 = TextBoxAddress2.Text;
+                    newaddress.City = TextBoxCity.Text;
+                    newaddress.State = TextBoxState.Text;
+                    newaddress.Zipcode = TextBoxZipCode.Text;
+                    newaddress.Type = "Other";
+
+                    context.Addresses.Add(newaddress);
+                    context.SaveChanges();
+
+                    AddressAdded.Visible = true;
+                    Address1.Text = newaddress.AddressLine1;
+                    Address2.Text = newaddress.AddressLine2;
+                    City.Text = newaddress.City;
+                    State.Text = newaddress.State;
+                    ZipCode.Text = newaddress.Zipcode;
+
+                    PanelAddAddress.Visible = false;
+
+                    isNewAddress = true;
+                    BtnNexToToPayment.Visible = true;
+                }
+            }
         }
     }
 }

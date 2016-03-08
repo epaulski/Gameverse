@@ -20,13 +20,13 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell>Address 1</asp:TableCell>
+            <asp:TableCell>Address Line 1</asp:TableCell>
             <asp:TableCell>
                 <asp:Label runat="server" ID="lbluseraddress1"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-            <asp:TableCell>Address 2</asp:TableCell>
+            <asp:TableCell>Address Lines 2</asp:TableCell>
             <asp:TableCell>
                 <asp:Label runat="server" ID="lbluseraddress2"></asp:Label>
             </asp:TableCell>
