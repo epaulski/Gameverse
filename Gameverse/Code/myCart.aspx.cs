@@ -236,6 +236,7 @@ namespace Gameverse.Code
                     newaddress.State = TextBoxState.Text;
                     newaddress.Zipcode = TextBoxZipCode.Text;
                     newaddress.Type = "Other";
+                    newaddress.UserId = userId;
 
                     context.Addresses.Add(newaddress);
                     context.SaveChanges();

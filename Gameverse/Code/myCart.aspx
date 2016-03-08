@@ -65,7 +65,7 @@
                  </div>
              </asp:Panel>
             <asp:Panel id="AddressAdded" runat="server" Visible="false">
-                <h4>Sending to:</h4>
+                <h4>Shipping to:</h4>
                 <asp:Label ID="Address1" runat="server" Text="Address Line 1"></asp:Label><br/>
                 <asp:Label ID="Address2" runat="server" Text="Address Line 2"></asp:Label><br/>
                 <asp:Label ID="City" runat="server" Text="Address Line 2"></asp:Label><br/>
