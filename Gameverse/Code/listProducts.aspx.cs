@@ -47,9 +47,11 @@ namespace Gameverse.Code
                         case "Featured":
                             games = (from p in context.Products orderby p.Rating descending select p).ToList().GetRange(0,6);
                             break;
+
                         case "NewReleases":
                             games = (from p in context.Products orderby p.ReleaseDate descending select p).ToList().GetRange(0,6);
                             break;
+
                         default:
                             filter = filter.ToLower();
                             games = (from p in context.Products where p.Name.Contains(filter) 

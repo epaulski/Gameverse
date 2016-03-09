@@ -10,7 +10,7 @@ namespace Gameverse.Code
 {
     public partial class viewProduct : System.Web.UI.Page
     {
-        string pid;
+        int productId;
         int UserID;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -33,25 +33,23 @@ namespace Gameverse.Code
 
             if (Request.QueryString["product"] != null)
             {
-                int id = Int32.Parse(Request.QueryString["product"].ToString());
-                LoadProduct(id);
+                productId = Int32.Parse(Request.QueryString["product"].ToString());
+                LoadProduct();
             }
             else
             {
                 lblMessage.Text = "No Product ID Provided";
                 pnlError.Visible = true;
             }
-            
-            pid = Request.QueryString["product"];
         }
 
-        protected void LoadProduct(int id)
+        protected void LoadProduct()
         {
             try
             {
                 using (GameverseContext context = new GameverseContext())
                 {
-                    var game = (from p in context.Products where p.Id == id select p).FirstOrDefault();
+                    var game = (from p in context.Products where p.Id == productId select p).FirstOrDefault();
                     if (game != null)
                     {
                         imgCover.ImageUrl = game.ImageUrl;
@@ -104,28 +102,27 @@ namespace Gameverse.Code
             {
                 using (GameverseContext context = new GameverseContext())
                 {
-                    int productId = Int32.Parse(pid);
-                    int quant = Int32.Parse(drpQuantity.Text);
+                    int quantity = Int32.Parse(drpQuantity.Text);
 
-                    var oldItem = (from c in context.CartItems where c.ProductId == productId select c).FirstOrDefault();
+                    var oldCartItem = (from c in context.CartItems where c.ProductId == productId select c).FirstOrDefault();
                     
-                    if(oldItem != null)
+                    if(oldCartItem != null)
                     {
-                        oldItem.Quantity = oldItem.Quantity + quant;
+                        oldCartItem.Quantity = Math.Min(oldCartItem.Product.Quantity, (int)oldCartItem.Quantity + quantity); ;
                     }
                     else
                     {
                         CartItem newitem = new CartItem();
 
                         newitem.ProductId = productId;
-                        newitem.Quantity = quant;
+                        newitem.Quantity = quantity;
                         newitem.UserId = UserID;
 
                         context.CartItems.Add(newitem);
                     }       
                     context.SaveChanges();
 
-                    Session["CartQuantity"] = (int)Session["CartQuantity"] + quant;
+                    Session["CartQuantity"] = (int)Session["CartQuantity"] + quantity;
 
                     Response.Redirect("myCart.aspx");
                 }

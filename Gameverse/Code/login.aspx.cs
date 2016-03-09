@@ -45,15 +45,13 @@ namespace Gameverse.Code
         protected void LogOut(object sender, EventArgs e)
         {
             Session.Clear();
-            Response.Redirect("login.aspx");
-            
+            Response.Redirect("login.aspx");            
         }
 
         protected void Login(object sender, EventArgs e)
         {
             using (GameverseContext context = new GameverseContext())
             {
-
                 string hashedPassword = SecuredPassword.GenerateHash(txtPassword.Text);
                 var user = (from u in context.Users
                             where u.Email == txtUserName.Text && u.Password == hashedPassword

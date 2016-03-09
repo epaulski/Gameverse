@@ -15,7 +15,7 @@ namespace Gameverse.Code
         {
             if (Session["LoggedInId"] == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("login.aspx?error=1");
             }
             else
             {
@@ -47,15 +47,12 @@ namespace Gameverse.Code
                                     newOrderProduct.ProductId = i.ProductId;
                                     newOrderProduct.Quantity = (int)i.Quantity;
 
-                                    i.Product.Quantity = i.Product.Quantity - (int)i.Quantity;
-                                    if (i.Product.Quantity < 0)
-                                    {
-                                        i.Product.Quantity = 0;
-                                    }
-
+                                    i.Product.Quantity = Math.Max(0, i.Product.Quantity - (int)i.Quantity);
+                                   
                                     context.OrderProducts.Add(newOrderProduct);
                                     context.CartItems.Remove(i);
                                 }
+
                                 var order = (from o in context.Orders where o.Id == orderId select o).FirstOrDefault();
                                 order.Status = "Shipping";
                                 
@@ -76,7 +73,8 @@ namespace Gameverse.Code
                                 context.SaveChanges();
                             }
                               
-                            LabelStatus.Text = "Transaction Denied!"; break;
+                            LabelStatus.Text = "Transaction Denied!";
+                            break;
                     }
                 }
                 else

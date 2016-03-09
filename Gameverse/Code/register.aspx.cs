@@ -75,7 +75,6 @@ namespace Gameverse
                         lblResults.Text = "Email already registered. Please use a different email or log in.";
                         panelError.Visible = true;
                     }
-
                 }               
             }
         }

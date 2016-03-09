@@ -68,7 +68,7 @@ namespace Gameverse
                     var games = (from p in context.Products orderby p.ReleaseDate descending select p).ToList().GetRange(0, 6);
                     rptNewReleasesFirst.DataSource = games.GetRange(0, 3);
                     rptNewReleasesFirst.DataBind();
-                    rptNewReleasesSecond.DataSource = games.GetRange(3, (games.Count - 3));
+                    rptNewReleasesSecond.DataSource = games.GetRange(3, Math.Min(3, (games.Count - 3)));
                     rptNewReleasesSecond.DataBind();
                 }
             }
@@ -85,7 +85,7 @@ namespace Gameverse
                     var games = (from p in context.Products orderby p.Rating descending select p).ToList().GetRange(0,6);
                     rptFeaturedFirst.DataSource = games.GetRange(0, 3);
                     rptFeaturedFirst.DataBind();
-                    rptFeaturedSecond.DataSource = games.GetRange(3, (games.Count - 3));
+                    rptFeaturedSecond.DataSource = games.GetRange(3, Math.Min(3, (games.Count - 3)));
                     rptFeaturedSecond.DataBind();
                 }
             }
@@ -102,7 +102,7 @@ namespace Gameverse
                     var games = (from p in context.Products where p.Platform == "Xbox One" select p).ToList();
                     rptXboxOneFirst.DataSource = games.GetRange(0, 3);
                     rptXboxOneFirst.DataBind();
-                    rptXboxOneSecond.DataSource = games.GetRange(3, (games.Count - 3));
+                    rptXboxOneSecond.DataSource = games.GetRange(3, Math.Min(3, (games.Count - 3)));
                     rptXboxOneSecond.DataBind();
                 }
             }
@@ -118,7 +118,7 @@ namespace Gameverse
                     var games = (from p in context.Products where p.Platform == "Playstation 4" select p).ToList();
                     rptPs4First.DataSource = games.GetRange(0, 3);
                     rptPs4First.DataBind();
-                    rptPs4Second.DataSource = games.GetRange(3, (games.Count-3));
+                    rptPs4Second.DataSource = games.GetRange(3, Math.Min(3, (games.Count - 3)));
                     rptPs4Second.DataBind();
                 }
             }
@@ -134,7 +134,7 @@ namespace Gameverse
                     var games = (from p in context.Products where p.Platform == "Nintendo Wii U" select p).ToList();
                     rptWiiUFirst.DataSource = games.GetRange(0, 3);
                     rptWiiUFirst.DataBind();
-                    rptWiiUSecond.DataSource = games.GetRange(3, (games.Count-3));
+                    rptWiiUSecond.DataSource = games.GetRange(3, Math.Min(3, (games.Count - 3)));
                     rptWiiUSecond.DataBind();
                 }
             }
@@ -184,7 +184,7 @@ namespace Gameverse
                 product.Quantity = 10;
                 product.Platform = "Playstation 4";
                 product.Value = 59.99;
-                product.ImageUrl = local_path + "StreetFighterV.jpg"; //File.ReadAllBytes(root_path + product.Name.Replace(" ", String.Empty) + ".jpg");
+                product.ImageUrl = local_path + "StreetFighterV.jpg";
                 product.ReleaseDate = new DateTime(2016, 02, 16);
                 product.Rating = 7;
                 product.GenreId = 2;

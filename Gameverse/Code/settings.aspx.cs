@@ -10,7 +10,7 @@ namespace Gameverse.Code
 {
     public partial class settings : System.Web.UI.Page
     {
-
+        int userId;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["LoggedInId"] == null)
@@ -29,11 +29,11 @@ namespace Gameverse.Code
                 Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
                 lblCartQuantity.Text = (Session["CartQuantity"]).ToString();
 
-                var currentId = int.Parse(Session["LoggedInId"].ToString());
+                userId = int.Parse(Session["LoggedInId"].ToString());
 
                 using (GameverseContext context = new GameverseContext())
                 {
-                    var user = (from u in context.Users where u.Id == currentId select u).FirstOrDefault();
+                    var user = (from u in context.Users where u.Id == userId select u).FirstOrDefault();
 
                     if(user != null)
                     {
@@ -41,7 +41,7 @@ namespace Gameverse.Code
                         lbluseremail.Text = user.Email;
                         lblemailoffer.Text = user.EmailOffer;
 
-                        var user_address = (from a in context.Addresses where a.UserId == currentId && a.Type == "Home" select a).FirstOrDefault();
+                        var user_address = (from a in context.Addresses where a.UserId == userId && a.Type == "Home" select a).FirstOrDefault();
 
                         if (user_address != null)
                         {
@@ -60,11 +60,11 @@ namespace Gameverse.Code
         {
             if (Page.IsValid)
             {
-                var currentId = int.Parse(Session["LoggedInId"].ToString());
+                userId = int.Parse(Session["LoggedInId"].ToString());
                 
                 using (GameverseContext context = new GameverseContext())
                 {
-                    var user = (from u in context.Users where u.Id == currentId select u).FirstOrDefault();
+                    var user = (from u in context.Users where u.Id == userId select u).FirstOrDefault();
 
                     if (user != null)
                     {
@@ -81,7 +81,7 @@ namespace Gameverse.Code
                             user.EmailOffer = lstEmailOffer.SelectedValue;
                         }
 
-                        var user_address = (from a in context.Addresses where a.UserId == currentId && a.Type == "Home" select a).FirstOrDefault();
+                        var user_address = (from a in context.Addresses where a.UserId == userId && a.Type == "Home" select a).FirstOrDefault();
 
                         if (user_address != null)
                         {
