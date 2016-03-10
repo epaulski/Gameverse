@@ -74,7 +74,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="/Code/myCart.aspx" style="display: inline;"><span class="glyphicon glyphicon-shopping-cart btn-lg"></span></a>
+                                <a href="/Code/myCart.aspx" class="cartlink" style="display: inline;"><span class="glyphicon glyphicon-shopping-cart btn-lg"></span></a>
                                 <span class="badge badge-red" id="cartQuantity"><asp:Label ID="lblCartQuantity" runat="server" Text="0"></asp:Label></span>
                             </li>
                         </ul>

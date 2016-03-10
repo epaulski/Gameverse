@@ -27,6 +27,7 @@ namespace Gameverse
             }
 
             //InsertData();
+            //InsertMoreData();
 
             LoadJumbotronGames();
             LoadNewReleases();
@@ -149,7 +150,7 @@ namespace Gameverse
             {
                 String local_path = "/Assets/Images/";
                 Product product;
-                
+
                 // All Kinds of Genres
                 Genre genre = context.Genres.Create();
                 genre.Name = "Action Adventure";
@@ -176,7 +177,7 @@ namespace Gameverse
                 context.Genres.Add(genre);
 
                 context.SaveChanges();
-                
+
                 // STREET FIGHTER V
                 product = context.Products.Create();
                 product.Name = "Street Fighter V";
@@ -190,7 +191,7 @@ namespace Gameverse
                 product.GenreId = 2;
                 context.Products.Add(product);
                 context.SaveChanges();
-                
+
                 // FAR CRY PRIMAL
                 product = context.Products.Create();
                 product.Name = "Far Cry Primal";
@@ -204,7 +205,7 @@ namespace Gameverse
                 product.GenreId = 1;
                 context.Products.Add(product);
                 context.SaveChanges();
-                
+
                 // Tom Clayncy's The Division
                 product = context.Products.Create();
                 product.Name = "Tom Clayncy's The Division";
@@ -358,7 +359,85 @@ namespace Gameverse
                 product.GenreId = 5;
                 context.Products.Add(product);
                 context.SaveChanges();
-                
+            }
+        }
+
+        protected void InsertMoreData()
+        {
+            using (GameverseContext context = new GameverseContext())
+            {
+                String local_path = "/Assets/Images/";
+                Product product;
+
+                // QUANTUM BREAK
+                product = context.Products.Create();
+                product.Name = "Quantum Break";
+                product.Description = "From the creators of Max Payne and Alan Wake comes this ambitious, action - packed third - person shooter.You are Jack Joyce, a man who is able to bend and shape Time.The manipulation of Time really opens up your options in a gunfight. You can reverse the clock to send a bullet back into a gun, leap between cover spots in a blink, pop up next to an enemy to finish him off, and more. Playing the game is only one portion of Quantum Break's 'holistic entertainment experience.' There's also a scripted series that details your enemies' story. How you play the game shapes a personalized version of the TV series, and watching the show gives you strategies and insights into playing the game.";
+                product.Quantity = 100;
+                product.Platform = "Xbox One";
+                product.Value = 59.99;
+                product.ImageUrl = local_path + "QuantumBreak.jpg";
+                product.ReleaseDate = new DateTime(2016, 04, 05);
+                product.Rating = 9;
+                product.GenreId = 1;
+                context.Products.Add(product);
+                context.SaveChanges();
+
+                // The Order: 1886
+                product = context.Products.Create();
+                product.Name = "The Order: 1886";
+                product.Description = "The Order: 1886 is an ambitious action-adventure game set in a fictional version of London. Instead of charming ladies and Victorian blokes, The Order's London is rife with terrifying monsters. In fact, all of human history has revolved around a war between men and this army of half-human abominations. You play as Galahad, a member of an ancient order of knights founded by King Arthur - you are sworn and duty-bound to protect the people of London. Luckily, your fellow knights are there to help you out, and you'll also have a ton of awesome steampunk-style technology on hand too. You'll fly zeppelins, use wireless communications, and fire an arsenal of exotic weapons at your monstrous foes.";
+                product.Quantity = 100;
+                product.Platform = "Playstation 4";
+                product.Value = 19.99;
+                product.ImageUrl = local_path + "TheOrder.jpg";
+                product.ReleaseDate = new DateTime(2015, 02, 19);
+                product.Rating = 6.3;
+                product.GenreId = 1;
+                context.Products.Add(product);
+                context.SaveChanges();
+
+                // The Last Tinker: City of Colors
+                product = context.Products.Create();
+                product.Name = "The Last Tinker: City of Colors";
+                product.Description = "This high-spirited, 3D action-adventure game is all about color. In gameplay heavily reminiscent of old-school platforming classics like Jak and Daxter or Banjo-Kazooie, The Last Tinker: City of Colors lets you command color itself. You play as Koru, a kid from the slums of Colortown. You can use various hues to aggravate, grieve, or frighten your enemies into solving puzzles and overcoming obstacles. Your mission is to return color and joy to the world, but it won't be easy. Your enemy, The Bleakness, is very powerful and committed to draining the world of all color - which will drain all happiness and life along with it.";
+                product.Quantity = 100;
+                product.Platform = "Playstation 4";
+                product.Value = 59.99;
+                product.ImageUrl = local_path + "LastTinker.jpg";
+                product.ReleaseDate = new DateTime(2016, 03, 03);
+                product.Rating = 8;
+                product.GenreId = 6;
+                context.Products.Add(product);
+                context.SaveChanges();
+
+                // Terraria
+                product = context.Products.Create();
+                product.Name = "Terraria";
+                product.Description = "	Fans of old-school action-adventure games are in for a treat. In Terraria, the world is yours to explore. With a pickaxe in your hands, you'll dig to the ends of the earth as you face off against a menagerie of treacherous villains and magical creatures. Craft a variety of new weapons and armor to help you on your journey. Use your skills to build powerful forts that will protect you against the enemy. Among the newly added features are GamePad support and 4-player split screen. Whether you're going at it alone or playing online with up to eight players, the world of Terraria is yours for the taking!";
+                product.Quantity = 100;
+                product.Platform = "Nintendo Wii U";
+                product.Value = 49.99;
+                product.ImageUrl = local_path + "Terraria.jpg";
+                product.ReleaseDate = new DateTime(2015, 12, 16);
+                product.Rating = 7.3;
+                product.GenreId = 6;
+                context.Products.Add(product);
+                context.SaveChanges();
+
+                // Mario Tennis Ultra Smash
+                product = context.Products.Create();
+                product.Name = "Mario Tennis Ultra Smash";
+                product.Description = "When he's not off saving Princess Peach, Mario just loves a good game of tennis. This lighthearted sports game features the exciting gameplay and colorful characters that the series is known for, but there are some new wrinkles to keep it fresh. Mushroom Kingdom favorites like Luigi, Wario, and Koopa are playable, and there are some new characters making their tennis debuts too. You can play either singles or doubles with human or AI opponents, or try out the new Mega Battles, where you can use a Mega Mushroom to help you win. Master the new Jumpshot to send the ball flying down the court. You'll need to use every technique you have to master this game. Mario Tennis Ultra Smash may look cartoonish, but playing at the highest level takes a surprising amount of skill, timing, and subtlety.";
+                product.Quantity = 100;
+                product.Platform = "Nintendo Wii U";
+                product.Value = 39.99;
+                product.ImageUrl = local_path + "MarioTennis.jpg";
+                product.ReleaseDate = new DateTime(2015, 5, 30);
+                product.Rating = 8.8;
+                product.GenreId = 5;
+                context.Products.Add(product);
+                context.SaveChanges();
             }
         }
     }  

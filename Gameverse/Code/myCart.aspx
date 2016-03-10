@@ -40,6 +40,10 @@
                  <br/>
                  <div class="row">
                  <div class="col-md-6">
+                 <asp:Label ID="LabelType" runat="server" Text="Type (i.e. Home, Work)"></asp:Label>
+                 <asp:TextBox cssclass="form-control" ID="TextBoxType" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldType" runat="server" ControlToValidate="TextBoxType" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+                 <br/>
                  <asp:Label ID="LabelAddress1" runat="server" Text="Address Line 1"></asp:Label>
                  <asp:TextBox cssclass="form-control" ID="TextBoxAddress1" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldAddress1" runat="server" ControlToValidate="TextBoxAddress1" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
@@ -66,6 +70,7 @@
              </asp:Panel>
             <asp:Panel id="AddressAdded" runat="server" Visible="false">
                 <h4>Shipping to:</h4>
+                <asp:Label ID="Type" runat="server" Text="Type"></asp:Label><br/>
                 <asp:Label ID="Address1" runat="server" Text="Address Line 1"></asp:Label><br/>
                 <asp:Label ID="Address2" runat="server" Text="Address Line 2"></asp:Label><br/>
                 <asp:Label ID="City" runat="server" Text="Address Line 2"></asp:Label><br/>

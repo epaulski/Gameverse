@@ -94,6 +94,33 @@ namespace Gameverse.Code {
         protected global::System.Web.UI.WebControls.Panel PanelAddAddress;
         
         /// <summary>
+        /// LabelType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelType;
+        
+        /// <summary>
+        /// TextBoxType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxType;
+        
+        /// <summary>
+        /// RequiredFieldType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldType;
+        
+        /// <summary>
         /// LabelAddress1 control.
         /// </summary>
         /// <remarks>
@@ -236,6 +263,15 @@ namespace Gameverse.Code {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel AddressAdded;
+        
+        /// <summary>
+        /// Type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Type;
         
         /// <summary>
         /// Address1 control.

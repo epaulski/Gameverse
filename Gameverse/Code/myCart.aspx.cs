@@ -227,11 +227,12 @@ namespace Gameverse.Code
                 newAddress.City = TextBoxCity.Text;
                 newAddress.State = TextBoxState.Text;
                 newAddress.Zipcode = TextBoxZipCode.Text;
-                newAddress.Type = "Other";
+                newAddress.Type = TextBoxType.Text;
                 newAddress.UserId = userId;
 
                 AddressAdded.Visible = true;
 
+                Type.Text = newAddress.Type;
                 Address1.Text = newAddress.AddressLine1;
                 Address2.Text = newAddress.AddressLine2;
                 City.Text = newAddress.City;

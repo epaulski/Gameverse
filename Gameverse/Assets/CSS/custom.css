@@ -161,3 +161,8 @@ th, td {
     right: 40px;
     background-color: #ff3939;
 }
+
+/* Cart hover */
+a.cartlink:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
