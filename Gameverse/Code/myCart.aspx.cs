@@ -123,6 +123,10 @@ namespace Gameverse.Code
                 PanelAddAddress.Visible = false;
                 BtnNexToToPayment.Visible = true;
 
+                // Get the new Address value, if it exists
+                if (Session["newAddress"] != null)
+                    newAddress = (Address)Session["newAddress"];
+
                 // If the address is new, ship to the last address added
                 // If not, get the value from the dropdownlist
                 if (newAddress != null)
@@ -233,7 +237,10 @@ namespace Gameverse.Code
                 City.Text = newAddress.City;
                 State.Text = newAddress.State;
                 ZipCode.Text = newAddress.Zipcode;
-                
+
+                // Session to keep the value
+                Session["newAddress"] = newAddress;
+
                 PanelAddAddress.Visible = false;
                 BtnNexToToPayment.Visible = true;                
             }

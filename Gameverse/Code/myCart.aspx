@@ -59,7 +59,7 @@
                  <asp:TextBox ID="TextBoxZipCode" cssclass="form-control" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldZipCode" runat="server" ControlToValidate="TextBoxZipCode" ErrorMessage="Required Field"></asp:RequiredFieldValidator>               
                  <br/>
-                 <asp:Button ID="ButtonSaveAddress" runat="server" Text="Save Address" CssClass="btn btn-primary" OnClick="ClickSaveAddress" />
+                 <asp:Button ID="ButtonSaveAddress" runat="server" Text="Use This Address" CssClass="btn btn-primary" OnClick="ClickSaveAddress" />
                  <br/>
                  </div>
                  </div>
