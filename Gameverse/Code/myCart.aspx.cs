@@ -146,7 +146,7 @@ namespace Gameverse.Code
                 double amount = 0;
                 foreach (CartItem i in MyCartItems)
                 {
-                    amount = amount + (int)i.Quantity * i.Product.Value;
+                    amount = amount + i.Quantity * i.Product.Value;
                 }
 
                 neworder.Total = amount;

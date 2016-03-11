@@ -107,7 +107,7 @@ namespace Gameverse.Code
                     
                     if (oldCartItem != null)
                     {
-                        int possibleQuantity = Math.Min(oldCartItem.Product.Quantity, (int)oldCartItem.Quantity + quantity);
+                        int possibleQuantity = Math.Min(oldCartItem.Product.Quantity, oldCartItem.Quantity + quantity);
                         quantity = possibleQuantity - oldCartItem.Quantity;
                         oldCartItem.Quantity = possibleQuantity;
                     }

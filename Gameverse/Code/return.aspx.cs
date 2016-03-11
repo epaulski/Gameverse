@@ -45,9 +45,9 @@ namespace Gameverse.Code
 
                                     newOrderProduct.OrderId = orderId;
                                     newOrderProduct.ProductId = i.ProductId;
-                                    newOrderProduct.Quantity = (int)i.Quantity;
+                                    newOrderProduct.Quantity = i.Quantity;
 
-                                    i.Product.Quantity = Math.Max(0, i.Product.Quantity - (int)i.Quantity);
+                                    i.Product.Quantity = Math.Max(0, i.Product.Quantity - i.Quantity);
                                    
                                     context.OrderProducts.Add(newOrderProduct);
                                     context.CartItems.Remove(i);
