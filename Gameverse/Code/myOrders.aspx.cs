@@ -43,8 +43,16 @@ namespace Gameverse.Code
                                 orderby o.Date descending
                                 select o).ToList();
 
-                rptOrders.DataSource = myOrders;
-                rptOrders.DataBind();
+                if(myOrders.Count() == 0)
+                {
+                    Panel2.Visible = true;
+                }
+                else
+                {
+                    rptOrders.DataSource = myOrders;
+                    rptOrders.DataBind();
+                    Panel1.Visible = true;
+                }          
             }     
         }
 

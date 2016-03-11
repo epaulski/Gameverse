@@ -18,7 +18,6 @@ namespace Gameverse.Models
         public int Id { get; set; }
         public String Name { get; set; }
         public String Description { get; set; }
-        public String Details { get; set; }
         public String Platform { get; set; }
         public double Value { get; set; }
         public String ImageUrl { get; set; }

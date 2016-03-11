@@ -20,14 +20,12 @@ namespace Gameverse.Models
         public String Status { get; set; }
         public DateTime Date { get; set; }
         public Nullable<int> ShippingAddressId { get; set; }
-        public Nullable<int> BillingAddressId { get; set; }
         
         [Timestamp]
         public byte[] Version { get; set; }
 
         public virtual User User { get; set; }
         public virtual Address ShippingAddress { get; set; }
-        public virtual Address BillingAddress { get; set; }
 
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
         

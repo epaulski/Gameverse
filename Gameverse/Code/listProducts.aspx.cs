@@ -59,9 +59,18 @@ namespace Gameverse.Code
                                      select p).ToList();
                             break;
                     }
-
-                    rptListProducts.DataSource = games;
-                    rptListProducts.DataBind();
+                    
+                    if(games.Count() == 0)
+                    {
+                        lblSearchKey.Text = "'"+ filter + "'";
+                        Panel2.Visible = true;
+                    }
+                    else
+                    {
+                        rptListProducts.DataSource = games;
+                        rptListProducts.DataBind();
+                        Panel1.Visible = true;
+                    }                    
                 }
             }
             catch (Exception)

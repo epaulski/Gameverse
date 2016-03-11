@@ -12,7 +12,6 @@ namespace Gameverse.Code
     public partial class myCart : System.Web.UI.Page
     {
         int userId;
-        Address newAddress;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -123,17 +122,16 @@ namespace Gameverse.Code
                 PanelAddAddress.Visible = false;
                 BtnNexToToPayment.Visible = true;
 
+                Address newAddress = new Address();
+
                 // Get the new Address value, if it exists
                 if (Session["newAddress"] != null)
-                    newAddress = (Address)Session["newAddress"];
-
-                // If the address is new, ship to the last address added
-                // If not, get the value from the dropdownlist
-                if (newAddress != null)
-                {
-                    context.Addresses.Add(this.newAddress);
+                { 
+                    newAddress = (Address) Session["newAddress"];
+                    context.Addresses.Add(newAddress);
                     context.SaveChanges();
-                    neworder.ShippingAddressId = this.newAddress.Id;
+                    neworder.ShippingAddressId = newAddress.Id;
+                    Session["newAddress"] = null;
                 }
                 else
                 {
@@ -220,7 +218,7 @@ namespace Gameverse.Code
         {
             if (Page.IsValid)
             {
-                newAddress = new Address();
+                Address newAddress = new Address();
 
                 newAddress.AddressLine1 = TextBoxAddress1.Text;
                 newAddress.AddressLine2 = TextBoxAddress2.Text;
@@ -229,15 +227,15 @@ namespace Gameverse.Code
                 newAddress.Zipcode = TextBoxZipCode.Text;
                 newAddress.Type = TextBoxType.Text;
                 newAddress.UserId = userId;
-
-                AddressAdded.Visible = true;
-
+                
                 Type.Text = newAddress.Type;
                 Address1.Text = newAddress.AddressLine1;
                 Address2.Text = newAddress.AddressLine2;
                 City.Text = newAddress.City;
                 State.Text = newAddress.State;
                 ZipCode.Text = newAddress.Zipcode;
+
+                AddressAdded.Visible = true;
 
                 // Session to keep the value
                 Session["newAddress"] = newAddress;

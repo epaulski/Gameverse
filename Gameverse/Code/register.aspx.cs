@@ -62,6 +62,7 @@ namespace Gameverse
 
                         Session["LoggedInId"] = user.Id.ToString();
                         Session["FirstName"] = user.Name.Split(' ')[0];
+                        Session["CartQuantity"] = 0;
 
                         HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
                         linkSession.Text = "Logout";

@@ -3,8 +3,9 @@
 <asp:Content ID="mainContent" ContentPlaceHolderID="mainContentPlaceHolder" runat="server">
     <h1 class="page-header">My Orders</h1>
     <div class="container">
-        <asp:Repeater ID="rptOrders" runat="server" OnItemDataBound="ItemBound">
-             <ItemTemplate>
+        <asp:Panel ID="Panel1" runat="server" Visible="false">
+            <asp:Repeater ID="rptOrders" runat="server" OnItemDataBound="ItemBound">
+                <ItemTemplate>
                     <div class="row">
                         <h4>Order number: <%#Eval("Id")%></h4>
                         <div class="col-md-7">
@@ -47,6 +48,10 @@
                     </div>
                     <hr/>
     	        </ItemTemplate>           
-        </asp:Repeater>
+            </asp:Repeater>
+        </asp:Panel>     
+        <asp:Panel ID="Panel2" runat="server" Visible="false">
+            <h4>You haven't ordered yet!</h4>
+        </asp:Panel> 
     </div>   
 </asp:Content>

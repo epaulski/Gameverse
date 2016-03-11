@@ -63,8 +63,7 @@ namespace Gameverse.Code
                     Session["FirstName"] = user.Name.Split(' ')[0];
 
                     var cartQuantity = (from c in context.CartItems where c.UserId == user.Id select c.Quantity).ToList().Sum();
-                    
-                    Session["CartQuantity"] = cartQuantity == null ? 0 : cartQuantity;
+                    Session["CartQuantity"] = cartQuantity;
 
                     Label lblCartQuantity = (Label)Master.FindControl("lblCartQuantity");
                     lblCartQuantity.Text = (Session["CartQuantity"]).ToString();

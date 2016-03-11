@@ -4,11 +4,9 @@
     <div class="page-header">
         <h1>My Cart</h1>
     </div>
-    <br/>
-   
+    <br/>  
     <asp:Label ID="Message" runat="server" CssClass="message"></asp:Label>
 	<section>
-
 		 <asp:Panel ID="Panel1" runat="server" Visible="false">
              <asp:Table ID="TableCart" runat="server" CssClass="table_cart text-center">
 			    <asp:TableHeaderRow CssClass="table_titles">
@@ -19,9 +17,7 @@
 		    </asp:Table>
             <br/>
            <asp:Button ID="BtnNextToAddress" runat="server" Text="Next to Address" CssClass="btn btn-primary" OnClick="ClickNextToAddress" />
-        
          </asp:Panel>
-        
         <asp:Panel ID="Panel2" runat="server" Visible="false">
              <hr/>
              <asp:RadioButtonList AutoPostBack="true" ID="RadioButtonList" runat="server" OnSelectedIndexChanged="RadioButtonList_SelectedIndexChanged">
@@ -80,13 +76,9 @@
             <hr/>
             <asp:Button Visible="false" ID="BtnNexToToPayment" runat="server" Text="Next to Payment" CssClass="btn btn-primary" OnClick="ClickNextToPayment" />
             <br/>
-        </asp:Panel>
-
-        
+        </asp:Panel>       
         <asp:Panel ID="Panel3" runat="server" Visible="false">
             <h4>You don't have any items in your cart yet!</h4>
-        </asp:Panel>
-        
+        </asp:Panel>        
 	</section>
-            
 </asp:Content>

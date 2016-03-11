@@ -103,12 +103,13 @@ namespace Gameverse.Code
                 using (GameverseContext context = new GameverseContext())
                 {
                     int quantity = Int32.Parse(drpQuantity.Text);
-
                     var oldCartItem = (from c in context.CartItems where c.ProductId == productId select c).FirstOrDefault();
                     
-                    if(oldCartItem != null)
+                    if (oldCartItem != null)
                     {
-                        oldCartItem.Quantity = Math.Min(oldCartItem.Product.Quantity, (int)oldCartItem.Quantity + quantity); ;
+                        int possibleQuantity = Math.Min(oldCartItem.Product.Quantity, (int)oldCartItem.Quantity + quantity);
+                        quantity = possibleQuantity - oldCartItem.Quantity;
+                        oldCartItem.Quantity = possibleQuantity;
                     }
                     else
                     {
