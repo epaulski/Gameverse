@@ -13,10 +13,11 @@ namespace Gameverse.Code
         int userId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["LoggedInId"] == null)
+            if (Session["LoggedInId"] == null)
             {
-                Response.Redirect("../login.aspx?error=1");
-            } else{
+                Response.Redirect("login.aspx?error=1");
+            }
+            else {
                 HyperLink linkSession = (HyperLink)Master.FindControl("linkSession");
                 linkSession.Text = "Logout";
 

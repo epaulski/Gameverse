@@ -16,13 +16,13 @@
 			    </asp:TableHeaderRow>
 		    </asp:Table>
             <br/>
-           <asp:Button ID="BtnNextToAddress" runat="server" Text="Next to Address" CssClass="btn btn-primary" OnClick="ClickNextToAddress" />
+           <asp:Button ID="BtnNextToAddress" runat="server" Text="Next: Address" CssClass="btn btn-primary" OnClick="ClickNextToAddress" />
          </asp:Panel>
         <asp:Panel ID="Panel2" runat="server" Visible="false">
              <hr/>
-             <asp:RadioButtonList AutoPostBack="true" ID="RadioButtonList" runat="server" OnSelectedIndexChanged="RadioButtonList_SelectedIndexChanged">
-                 <asp:ListItem Value="1"> Choose existing address</asp:ListItem>   
-                 <asp:ListItem Value="2"> Use a different address</asp:ListItem>
+             <asp:RadioButtonList AutoPostBack="true" ID="RadioButtonList" runat="server" OnSelectedIndexChanged="RadioButtonList_SelectedIndexChanged" class="checkbox">
+                 <asp:ListItem Value="1">Choose existing address</asp:ListItem>   
+                 <asp:ListItem Value="2">Use a different address</asp:ListItem>
              </asp:RadioButtonList>
              <asp:Panel ID="PanelChooseAddress" runat="server" Visible="false">
                  <h4>Choose an existing address</h4>
@@ -74,7 +74,7 @@
                 <asp:Label ID="ZipCode" runat="server" Text="Address Line 2"></asp:Label>
             </asp:Panel>
             <hr/>
-            <asp:Button Visible="false" ID="BtnNexToToPayment" runat="server" Text="Next to Payment" CssClass="btn btn-primary" OnClick="ClickNextToPayment" />
+            <asp:Button Visible="false" ID="BtnNexToToPayment" runat="server" Text="Next: Payment" CssClass="btn btn-primary" OnClick="ClickNextToPayment" />
             <br/>
         </asp:Panel>       
         <asp:Panel ID="Panel3" runat="server" Visible="false">
